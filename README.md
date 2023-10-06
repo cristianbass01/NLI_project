@@ -1,5 +1,7 @@
 # NLI project 🤖
 
+Evaluation of NLI course: 60 % this project
+
 Implementation of the core functionalities of a CA:
 - Domain identification/ Dialog act prediction
 - Content extraction from User utterances (semantic frame slot filling)
