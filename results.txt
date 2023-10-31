@@ -1,0 +1,21 @@
+Intent classification:
+RF CLASSIFIER
+- word unigram freq + POS unigram freq:
+    acc = 0.6330338631651693, precision = 0.7320061273507674, recall = 0.5286026694211855, f_score = 0.5943527948634332
+    lots of sparse features (4124 columns), not great
+    takes like 20 mins to train
+- tf-idf alone:
+    FIRST TEST:
+    acc = 0.6567035245335177, precision = 0.7376593651545634, recall = 0.5448187128031391, f_score = 0.6107603660009852
+    trained basically immediately ???????
+    SECOND TEST:
+    acc = 0.6570490670352453, precision = 0.7213301973883317, recall = 0.5451235545598692, f_score = 0.6074928542635536
+    trained in like 10 mins
+- tf-idf + POS unigram freq:
+    acc = 0.6592950932964755, precision = 0.7399701260261509, recall = 0.5516549219381565, f_score = 0.6168589618511185
+    takes like 10 mins to train somehow even there are not many more feature than previously
+- POS unigram freq alone:
+    acc = 0.2.... really bad, don't even bother
+- tf-idf + POS bigram freq:
+    acc = 0.6617138908085695, precision = 0.7222711187459014, recall = 0.5466970022684188, f_score = 0.6085943003040319
+
