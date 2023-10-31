@@ -1,5 +1,5 @@
 Intent classification:
-RF CLASSIFIER
+XGB CLASSIFIER
 - word unigram freq + POS unigram freq:
     acc = 0.6330338631651693, precision = 0.7320061273507674, recall = 0.5286026694211855, f_score = 0.5943527948634332
     lots of sparse features (4124 columns), not great
@@ -18,4 +18,9 @@ RF CLASSIFIER
     acc = 0.2.... really bad, don't even bother
 - tf-idf + POS bigram freq:
     acc = 0.6617138908085695, precision = 0.7222711187459014, recall = 0.5466970022684188, f_score = 0.6085943003040319
-
+- spacy small embeddings:
+    acc ~ 0.33 (not great)
+- tf-idf + spacy small embeddings:
+    acc = 0.6463372494816862, precision = 0.6879692477110746, recall = 0.5334996848015106, f_score = 0.591321821209567
+- tf-idf + spacy large embeddings:
+    acc = 0.6447823082239116, precision = 0.6955918503068472, recall = 0.5348553255518493, f_score = 0.592918607431943
