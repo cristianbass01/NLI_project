@@ -24,3 +24,14 @@ XGB CLASSIFIER
     acc = 0.6463372494816862, precision = 0.6879692477110746, recall = 0.5334996848015106, f_score = 0.591321821209567
 - tf-idf + spacy large embeddings:
     acc = 0.6447823082239116, precision = 0.6955918503068472, recall = 0.5348553255518493, f_score = 0.592918607431943
+
+SVM with C = 100 and RBF kernel
+- tf-idf + fasttext word embeddings and 300 features selected:
+    acc = 0.7690048375950241, precision = 0.6941788239959236, recall = 0.6406311575927013, f_score = 0.6647446123129683
+
+MLP
+- tf-idf + fasttext word embeddings and 300 features selected:
+    ???
+
+early stopping + using 'other' as label
+acc = 0.7911195577055978, precision = 0.9126654330602231, recall = 0.7242554307053071, f_score = 0.7954422645318626
