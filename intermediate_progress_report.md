@@ -22,10 +22,10 @@ Giuseppe Cianci     - u234127
     - TF-IDF + fastText embeddings + top-k feature selection based on ANOVA score:
       Accuracy: 76.9%, Precision: 69.4%, Recall: 64.1%, F1: 66.5%
 - **MLP:** Multi Layer Perceptron with BatchNorm and Dropout (and unifying non-hotel or restaurant intents into 'other' class):
-    - TF-IDF + fastText embeddings + top-k feature selection based on ANOVE score:
+    - TF-IDF + fastText embeddings + top-k feature selection based on ANOVA score:
       Accuracy: 79.1%, Precision: 91.2%, Recall: 72.4%, F1: 79.5%
-- **Finetuning Pre-trained Transformer Models:** Utilized BERT for fine-tuning on our specific dataset.  
-  BERT: Accuracy: 86.6 %, Precision: 89.8 %, Recall: 89.2 %, F1: 89.5 %  
+- **Finetuning Pre-trained Transformer Models:** Utilized BERT for fine-tuning on our specific dataset (and unifying non-hotel or restaurant intents into 'other' class):  
+  Accuracy: 86.6 %, Precision: 89.8 %, Recall: 89.2 %, F1: 89.5 %  
 
 #### Possible Improvements
 - Make use of utterances and intent histories
@@ -36,10 +36,11 @@ Giuseppe Cianci     - u234127
 ### Task 2: Content Extraction from User Utterances (Semantic Frame Slot Filling)
 
 #### Approaches Tried
-- **Finetuning Pre-trained Transformer Models:** RoBERTa for token classification fine tuned for sequence to sequence BIO tagging, with Effective Number of Samples class loss weighting to combat class imbalance:
+- **Finetuning Pre-trained Transformer Models:**
+  - BERT for token classification fine tuned for sequence to sequence BIO tagging, with punctuation removal preprocessing, splitting on spaces then running tokenizer on every split word: Accuracy: 98 %, Precision: 91 %, Recall: 95 %, F1-Score: 93 %
+  - RoBERTa for token classification fine tuned for sequence to sequence BIO tagging, with Effective Number of Samples class loss weighting to combat class imbalance and running tokenizer on whole sentence:
   Accuracy: 97%, Precision: 76.6%, Recall: 96.8%, F1: 84.2%
-  
-  Accuracy: 98 %, Precision: 91 %, Recall: 95 %, F1-Score: 93 %
+
 
 #### Possible Improvements
 - Make use of utterrances and intent histories
@@ -48,4 +49,4 @@ Giuseppe Cianci     - u234127
 
 ### Task 3: Agent Move Prediction
 
-Not started yet.
+Not started yet. First idea to try is a rule-based approach of predicting the frame by matching the filled slots to the frames existent in the train dataset. After that, generalization can be tested by trying doing multi-label classification on the slots.
