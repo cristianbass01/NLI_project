@@ -2,7 +2,7 @@
 
 Cristian Bassotto   - u210426  
 Nikolay Kormushev   - u234126  
-Adrian Gheorgiu     - u234621  
+Adrian Gheorghiu    - u234621  
 Giuseppe Cianci     - u234127
 
 
@@ -24,6 +24,11 @@ Giuseppe Cianci     - u234127
 - **MLP:** Multi Layer Perceptron with BatchNorm and Dropout (and unifying non-hotel or restaurant intents into 'other' class):
     - TF-IDF + fastText embeddings + top-k feature selection based on ANOVA score:
       Accuracy: 79.1%, Precision: 91.2%, Recall: 72.4%, F1: 79.5%
+- **LSTM** Stacked bidirectional Long Short-Term Memory architecture with Effective Number of Samples class loss weighting to combat class imbalance (and unifying non-hotel or restaurant intents into 'other' class):
+    - fastText embeddings:
+      Accuracy: 77.7%, Precision: 91.9%, Recall: 70.4%, F1: 77.7%
+    - BERT embeddings:
+      Accuracy: 77.7%, Precision: 90.2%, Recall: 69.2%, F1: 75.1%
 - **Finetuning Pre-trained Transformer Models:** Utilized BERT for fine-tuning on our specific dataset (and unifying non-hotel or restaurant intents into 'other' class):  
   Accuracy: 86.6 %, Precision: 89.8 %, Recall: 89.2 %, F1: 89.5 %  
 
