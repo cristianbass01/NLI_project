@@ -30,7 +30,11 @@ Giuseppe Cianci     - u234127
     - BERT embeddings:
       Accuracy: 77.7%, Precision: 90.2%, Recall: 69.2%, F1: 75.1%
 - **Finetuning Pre-trained Transformer Models:** Utilized BERT for fine-tuning on our specific dataset (and unifying non-hotel or restaurant intents into 'other' class):  
-  Accuracy: 86.6 %, Precision: 89.8 %, Recall: 89.2 %, F1: 89.5 %  
+  Accuracy: 86.6 %, Precision: 89.8 %, Recall: 89.2 %, F1: 89.5 %
+
+**SECOND PART**
+- ***LSTM with history** Stacked bidirectional Long Short-Term Memory architecture with Effective Number of Samples class loss weighting to combat class imbalance (and unifying non-hotel or restaurant intents into 'other' class) with history, using BERT embeddings and early stopping:
+  Accuracy: 88.1%, Precision: 91.4%, Recall: 85.5%, F1: 88.3%
 
 #### Possible Improvements
 - Make use of utterances and intent histories
@@ -45,6 +49,12 @@ Giuseppe Cianci     - u234127
   - BERT for token classification fine tuned for sequence to sequence BIO tagging, with punctuation removal preprocessing, splitting on spaces then running tokenizer on every split word: Accuracy: 98 %, Precision: 91 %, Recall: 95 %, F1-Score: 93 %
   - RoBERTa for token classification fine tuned for sequence to sequence BIO tagging, with Effective Number of Samples class loss weighting to combat class imbalance and running tokenizer on whole sentence:
   Accuracy: 97%, Precision: 76.6%, Recall: 96.8%, F1: 84.2%
+  
+**SECOND PART**
+  - GPT2 (...) with history:
+  Accuracy: 96.7%, Precision: 77.6%, Recall: 93.3%, F1: 83.6%
+  - ConvBert (...) with history:
+  Accuracy: 97.6%, Precision: 84.1%, Recall: 97.9%, F1: 89.9%
 
 
 #### Possible Improvements
