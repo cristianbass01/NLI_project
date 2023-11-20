@@ -33,8 +33,11 @@ Giuseppe Cianci     - u234127
   Accuracy: 86.6 %, Precision: 89.8 %, Recall: 89.2 %, F1: 89.5 %
 
 **SECOND PART**
-- ***LSTM with history** Stacked bidirectional Long Short-Term Memory architecture with Effective Number of Samples class loss weighting to combat class imbalance (and unifying non-hotel or restaurant intents into 'other' class) with history, using BERT embeddings and early stopping:
-  Accuracy: 88.1%, Precision: 91.4%, Recall: 85.5%, F1: 88.3%
+- ***LSTM with history** Stacked bidirectional Long Short-Term Memory architecture with Effective Number of Samples class loss weighting to combat class imbalance (and unifying non-hotel or restaurant intents into 'other' class) with history, and early stopping:
+    - fastText embeddings:
+      Accuracy: 87.9%, Precision: 92.3%, Recall: 83.4%, F1: 87.3%
+    - BERT embeddings:
+      Accuracy: 88.1%, Precision: 91.4%, Recall: 85.5%, F1: 88.3%
 
 #### Possible Improvements
 - Make use of utterances and intent histories
