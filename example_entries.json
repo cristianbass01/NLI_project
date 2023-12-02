@@ -1,0 +1,4677 @@
+[
+    {
+        "dialogue_id": "PMUL4398.json",
+        "services": [
+            "restaurant",
+            "hotel"
+        ],
+        "turns": {
+            "turn_id": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11"
+            ],
+            "speaker": [
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1
+            ],
+            "utterance": [
+                "i need a place to dine in the center thats expensive",
+                "I have several options for you; do you prefer African, Asian, or British food?",
+                "Any sort of food would be fine, as long as it is a bit expensive. Could I get the phone number for your recommendation?",
+                "There is an Afrian place named Bedouin in the centre. How does that sound?",
+                "Sounds good, could I get that phone number? Also, could you recommend me an expensive hotel?",
+                "Bedouin's phone is 01223367660. As far as hotels go, I recommend the University Arms Hotel in the center of town.",
+                "Yes. Can you book it for me?",
+                "Sure, when would you like that reservation?",
+                "i want to book it for 2 people and 2 nights starting from saturday.",
+                "Your booking was successful. Your reference number is FRGZWQL2 . May I help you further?",
+                "That is all I need to know. Thanks, good bye.",
+                "Thank you so much for Cambridge TownInfo centre. Have a great day!"
+            ],
+            "frames": [
+                {
+                    "service": [
+                        "restaurant",
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_restaurant",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "restaurant-area",
+                                    "restaurant-pricerange"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "centre"
+                                    ],
+                                    [
+                                        "expensive"
+                                    ]
+                                ]
+                            }
+                        },
+                        {
+                            "active_intent": "find_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [],
+                                "slots_values_list": []
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        },
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "restaurant",
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_restaurant",
+                            "requested_slots": [
+                                "restaurant-food"
+                            ],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "restaurant-area",
+                                    "restaurant-pricerange"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "centre"
+                                    ],
+                                    [
+                                        "expensive"
+                                    ]
+                                ]
+                            }
+                        },
+                        {
+                            "active_intent": "find_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [],
+                                "slots_values_list": []
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        },
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "restaurant",
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_restaurant",
+                            "requested_slots": [
+                                "restaurant-phone"
+                            ],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "restaurant-area",
+                                    "restaurant-name",
+                                    "restaurant-pricerange"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "centre"
+                                    ],
+                                    [
+                                        "bedouin"
+                                    ],
+                                    [
+                                        "expensive"
+                                    ]
+                                ]
+                            }
+                        },
+                        {
+                            "active_intent": "find_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-pricerange",
+                                    "hotel-type"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "expensive"
+                                    ],
+                                    [
+                                        "hotel"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        },
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-name",
+                                    "hotel-pricerange",
+                                    "hotel-type"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "university arms hotel"
+                                    ],
+                                    [
+                                        "expensive"
+                                    ],
+                                    [
+                                        "hotel"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "book_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-bookday",
+                                    "hotel-bookpeople",
+                                    "hotel-bookstay",
+                                    "hotel-name",
+                                    "hotel-pricerange",
+                                    "hotel-type"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "saturday"
+                                    ],
+                                    [
+                                        "2"
+                                    ],
+                                    [
+                                        "2"
+                                    ],
+                                    [
+                                        "university arms hotel"
+                                    ],
+                                    [
+                                        "expensive"
+                                    ],
+                                    [
+                                        "hotel"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                }
+            ],
+            "dialogue_acts": [
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Restaurant-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "area",
+                                    "pricerange"
+                                ],
+                                "slot_value": [
+                                    "centre",
+                                    "expensive"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Restaurant-Inform",
+                            "Restaurant-Inform"
+                        ],
+                        "act_slot_name": [
+                            "area",
+                            "pricerange"
+                        ],
+                        "act_slot_value": [
+                            "centre",
+                            "expensive"
+                        ],
+                        "span_start": [
+                            30,
+                            43
+                        ],
+                        "span_end": [
+                            36,
+                            52
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Restaurant-Inform",
+                            "Restaurant-Select"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "choice"
+                                ],
+                                "slot_value": [
+                                    "several"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "food",
+                                    "food",
+                                    "food"
+                                ],
+                                "slot_value": [
+                                    "African",
+                                    "Asian",
+                                    "British"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Restaurant-Inform",
+                            "Restaurant-Select",
+                            "Restaurant-Select",
+                            "Restaurant-Select"
+                        ],
+                        "act_slot_name": [
+                            "choice",
+                            "food",
+                            "food",
+                            "food"
+                        ],
+                        "act_slot_value": [
+                            "several",
+                            "African",
+                            "Asian",
+                            "British"
+                        ],
+                        "span_start": [
+                            7,
+                            46,
+                            55,
+                            65
+                        ],
+                        "span_end": [
+                            14,
+                            53,
+                            60,
+                            72
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Restaurant-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "food"
+                                ],
+                                "slot_value": [
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Restaurant-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "area",
+                                    "food",
+                                    "name"
+                                ],
+                                "slot_value": [
+                                    "centre",
+                                    "Afrian",
+                                    "Bedouin"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Restaurant-Inform",
+                            "Restaurant-Inform",
+                            "Restaurant-Inform"
+                        ],
+                        "act_slot_name": [
+                            "food",
+                            "name",
+                            "area"
+                        ],
+                        "act_slot_value": [
+                            "Afrian",
+                            "Bedouin",
+                            "centre"
+                        ],
+                        "span_start": [
+                            12,
+                            31,
+                            46
+                        ],
+                        "span_end": [
+                            18,
+                            38,
+                            52
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform",
+                            "Restaurant-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "pricerange",
+                                    "type"
+                                ],
+                                "slot_value": [
+                                    "expensive",
+                                    "hotel"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "phone"
+                                ],
+                                "slot_value": [
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform",
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "pricerange",
+                            "type"
+                        ],
+                        "act_slot_value": [
+                            "expensive",
+                            "hotel"
+                        ],
+                        "span_start": [
+                            76,
+                            86
+                        ],
+                        "span_end": [
+                            85,
+                            91
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Recommend",
+                            "Restaurant-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "area",
+                                    "name"
+                                ],
+                                "slot_value": [
+                                    "center of town",
+                                    "the University Arms Hotel"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "name",
+                                    "phone"
+                                ],
+                                "slot_value": [
+                                    "Bedouin",
+                                    "01223367660"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Restaurant-Inform",
+                            "Restaurant-Inform",
+                            "Hotel-Recommend",
+                            "Hotel-Recommend"
+                        ],
+                        "act_slot_name": [
+                            "name",
+                            "phone",
+                            "name",
+                            "area"
+                        ],
+                        "act_slot_value": [
+                            "Bedouin",
+                            "01223367660",
+                            "the University Arms Hotel",
+                            "center of town"
+                        ],
+                        "span_start": [
+                            0,
+                            19,
+                            65,
+                            98
+                        ],
+                        "span_end": [
+                            7,
+                            30,
+                            90,
+                            112
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "bookday"
+                                ],
+                                "slot_value": [
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "bookday",
+                                    "bookpeople",
+                                    "bookstay"
+                                ],
+                                "slot_value": [
+                                    "saturday",
+                                    "2",
+                                    "2"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform",
+                            "Hotel-Inform",
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "bookstay",
+                            "bookpeople",
+                            "bookday"
+                        ],
+                        "act_slot_value": [
+                            "2",
+                            "2",
+                            "saturday"
+                        ],
+                        "span_start": [
+                            22,
+                            35,
+                            58
+                        ],
+                        "span_end": [
+                            23,
+                            36,
+                            66
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-Book",
+                            "general-reqmore"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "ref"
+                                ],
+                                "slot_value": [
+                                    "FRGZWQL2"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Booking-Book"
+                        ],
+                        "act_slot_name": [
+                            "ref"
+                        ],
+                        "act_slot_value": [
+                            "FRGZWQL2"
+                        ],
+                        "span_start": [
+                            54
+                        ],
+                        "span_end": [
+                            62
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-bye"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-bye",
+                            "general-welcome"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "dialogue_id": "SNG1013.json",
+        "services": [
+            "hotel"
+        ],
+        "turns": {
+            "turn_id": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11"
+            ],
+            "speaker": [
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1
+            ],
+            "utterance": [
+                "Guten Tag, I am staying overnight in Cambridge and need a place to sleep. I need free parking and internet.",
+                "I have 4 different options for you. I have two cheaper guesthouses and two expensive hotels. Do you have a preference?",
+                "No, but I'd really like to be on the south end of the city. Do any of those fit the bill?",
+                "Sure. Does price matter? We can narrow it down and find exactly what you need.",
+                "No I don't care about the price. Which one do you recommend?",
+                "I would recommend aylesbray lodge guest house. Would you like me to book that for you?",
+                "Yes, book it for 4 people and 4 nights starting from tuesday.",
+                "The booking was unsuccessful. would you like another day or a shorter stay?",
+                "How about for 3 nights?",
+                "Booked! Reference number is: 84ESP6F5",
+                "Great. I am all set then. Have a nice day. Bye.",
+                "Have a nice stay. Bye."
+            ],
+            "frames": [
+                {
+                    "service": [
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-area",
+                                    "hotel-internet",
+                                    "hotel-parking"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "centre"
+                                    ],
+                                    [
+                                        "yes"
+                                    ],
+                                    [
+                                        "yes"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "hotel",
+                        "restaurant"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-area",
+                                    "hotel-internet",
+                                    "hotel-parking"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "south"
+                                    ],
+                                    [
+                                        "yes"
+                                    ],
+                                    [
+                                        "yes"
+                                    ]
+                                ]
+                            }
+                        },
+                        {
+                            "active_intent": "find_restaurant",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [],
+                                "slots_values_list": []
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        },
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "hotel",
+                        "restaurant"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-area",
+                                    "hotel-internet",
+                                    "hotel-parking"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "south"
+                                    ],
+                                    [
+                                        "yes"
+                                    ],
+                                    [
+                                        "yes"
+                                    ]
+                                ]
+                            }
+                        },
+                        {
+                            "active_intent": "find_restaurant",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [],
+                                "slots_values_list": []
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        },
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "book_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-area",
+                                    "hotel-bookday",
+                                    "hotel-bookpeople",
+                                    "hotel-bookstay",
+                                    "hotel-internet",
+                                    "hotel-parking"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "south"
+                                    ],
+                                    [
+                                        "tuesday"
+                                    ],
+                                    [
+                                        "4"
+                                    ],
+                                    [
+                                        "4"
+                                    ],
+                                    [
+                                        "yes"
+                                    ],
+                                    [
+                                        "yes"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "book_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-area",
+                                    "hotel-bookday",
+                                    "hotel-bookpeople",
+                                    "hotel-bookstay",
+                                    "hotel-internet",
+                                    "hotel-name",
+                                    "hotel-parking"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "south"
+                                    ],
+                                    [
+                                        "tuesday"
+                                    ],
+                                    [
+                                        "4"
+                                    ],
+                                    [
+                                        "3"
+                                    ],
+                                    [
+                                        "yes"
+                                    ],
+                                    [
+                                        "aylesbray lodge guest house"
+                                    ],
+                                    [
+                                        "yes"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                }
+            ],
+            "dialogue_acts": [
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "internet",
+                                    "parking"
+                                ],
+                                "slot_value": [
+                                    "yes",
+                                    "yes"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform",
+                            "Hotel-Select"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "choice",
+                                    "pricerange",
+                                    "pricerange",
+                                    "type",
+                                    "type"
+                                ],
+                                "slot_value": [
+                                    "4",
+                                    "cheaper",
+                                    "expensive",
+                                    "guesthouses",
+                                    "hotels"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform",
+                            "Hotel-Inform",
+                            "Hotel-Inform",
+                            "Hotel-Inform",
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "choice",
+                            "pricerange",
+                            "type",
+                            "pricerange",
+                            "type"
+                        ],
+                        "act_slot_value": [
+                            "4",
+                            "cheaper",
+                            "guesthouses",
+                            "expensive",
+                            "hotels"
+                        ],
+                        "span_start": [
+                            7,
+                            47,
+                            55,
+                            75,
+                            85
+                        ],
+                        "span_end": [
+                            8,
+                            54,
+                            66,
+                            84,
+                            91
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "area"
+                                ],
+                                "slot_value": [
+                                    "south"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "area"
+                        ],
+                        "act_slot_value": [
+                            "south"
+                        ],
+                        "span_start": [
+                            37
+                        ],
+                        "span_end": [
+                            42
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Request",
+                            "Restaurant-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "pricerange"
+                                ],
+                                "slot_value": [
+                                    "?"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "pricerange"
+                                ],
+                                "slot_value": [
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform",
+                            "Restaurant-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "pricerange"
+                                ],
+                                "slot_value": [
+                                    "dontcare"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "pricerange"
+                                ],
+                                "slot_value": [
+                                    "dontcare"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform",
+                            "Restaurant-Inform"
+                        ],
+                        "act_slot_name": [
+                            "pricerange",
+                            "pricerange"
+                        ],
+                        "act_slot_value": [
+                            "dontcare",
+                            "dontcare"
+                        ],
+                        "span_start": [
+                            5,
+                            5
+                        ],
+                        "span_end": [
+                            15,
+                            15
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-Inform",
+                            "Hotel-Inform",
+                            "Restaurant-Recommend"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "name"
+                                ],
+                                "slot_value": [
+                                    "aylesbray lodge guest house"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "name"
+                        ],
+                        "act_slot_value": [
+                            "aylesbray lodge guest house"
+                        ],
+                        "span_start": [
+                            18
+                        ],
+                        "span_end": [
+                            45
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "bookday",
+                                    "bookpeople",
+                                    "bookstay"
+                                ],
+                                "slot_value": [
+                                    "tuesday",
+                                    "4",
+                                    "4"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform",
+                            "Hotel-Inform",
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "bookstay",
+                            "bookpeople",
+                            "bookday"
+                        ],
+                        "act_slot_value": [
+                            "4",
+                            "4",
+                            "tuesday"
+                        ],
+                        "span_start": [
+                            17,
+                            30,
+                            53
+                        ],
+                        "span_end": [
+                            18,
+                            31,
+                            60
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-NoBook",
+                            "Booking-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "bookday",
+                                    "bookstay"
+                                ],
+                                "slot_value": [
+                                    "?",
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "bookstay"
+                                ],
+                                "slot_value": [
+                                    "3"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "bookstay"
+                        ],
+                        "act_slot_value": [
+                            "3"
+                        ],
+                        "span_start": [
+                            14
+                        ],
+                        "span_end": [
+                            15
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-Book"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "ref"
+                                ],
+                                "slot_value": [
+                                    "84ESP6F5"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Booking-Book"
+                        ],
+                        "act_slot_name": [
+                            "ref"
+                        ],
+                        "act_slot_value": [
+                            "84ESP6F5"
+                        ],
+                        "span_start": [
+                            29
+                        ],
+                        "span_end": [
+                            37
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-bye"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-bye"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "dialogue_id": "PMUL0121.json",
+        "services": [
+            "restaurant",
+            "hotel"
+        ],
+        "turns": {
+            "turn_id": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13"
+            ],
+            "speaker": [
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1
+            ],
+            "utterance": [
+                "Hi there! Can you give me some info on Cityroomz?",
+                "Cityroomz is located at Sleeperz Hotel, Station Road in the Centre area. It is a moderatley priced hotel with a 0 star rating. Would you like to book a room?",
+                "Yes please. I need it for 7 people for 3 nights starting on tuesday.",
+                "How many days would you like to book it for?",
+                "I would like to book it for 3 nights beginning on Tuesday.",
+                "Ok, Your rooms have been booked. Your reference number is CYJDAR7R . Is there anything else I can help you with today?",
+                "Yeah, I need a restaurant in the west and with expensive pricing.",
+                "There are 9 expensive restaurants in the west area. Do you prefer a certain type of food?",
+                "No, I don't have a preference, but I need the phone number and postcode.",
+                "I recommend Graffiti, the number is 01223277977 and the postcode is cb30lx. Would you like me to book a table for you?",
+                "No, right now, I just need the infor. Thanks!",
+                "Can I help you with anything else today?",
+                "That is all. thanks",
+                "Thank you for using our system."
+            ],
+            "frames": [
+                {
+                    "service": [
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-name"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "cityroomz"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [
+                                "hotel-name"
+                            ],
+                            "value": [
+                                "Cityroomz"
+                            ],
+                            "start": [
+                                48
+                            ],
+                            "exclusive_end": [
+                                39
+                            ],
+                            "copy_from": [
+                                ""
+                            ],
+                            "copy_from_value": [
+                                []
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "book_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-bookday",
+                                    "hotel-bookpeople",
+                                    "hotel-bookstay",
+                                    "hotel-name"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "tuesday"
+                                    ],
+                                    [
+                                        "7"
+                                    ],
+                                    [
+                                        "3"
+                                    ],
+                                    [
+                                        "cityroomz"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "book_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-bookday",
+                                    "hotel-bookpeople",
+                                    "hotel-bookstay",
+                                    "hotel-name"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "tuesday"
+                                    ],
+                                    [
+                                        "7"
+                                    ],
+                                    [
+                                        "3"
+                                    ],
+                                    [
+                                        "cityroomz"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "restaurant"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_restaurant",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "restaurant-area",
+                                    "restaurant-pricerange"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "west"
+                                    ],
+                                    [
+                                        "expensive"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "restaurant"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_restaurant",
+                            "requested_slots": [
+                                "restaurant-phone",
+                                "restaurant-postcode"
+                            ],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "restaurant-area",
+                                    "restaurant-pricerange"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "west"
+                                    ],
+                                    [
+                                        "expensive"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                }
+            ],
+            "dialogue_acts": [
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "name"
+                                ],
+                                "slot_value": [
+                                    "cityroomz"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "name"
+                        ],
+                        "act_slot_value": [
+                            "cityroomz"
+                        ],
+                        "span_start": [
+                            39
+                        ],
+                        "span_end": [
+                            48
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-Inform",
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "address",
+                                    "address",
+                                    "area",
+                                    "name",
+                                    "pricerange",
+                                    "stars",
+                                    "type"
+                                ],
+                                "slot_value": [
+                                    "Sleeperz Hotel",
+                                    "Station Road",
+                                    "Centre",
+                                    "Cityroomz",
+                                    "moderatley priced",
+                                    "0",
+                                    "hotel"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform",
+                            "Hotel-Inform",
+                            "Hotel-Inform",
+                            "Hotel-Inform",
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "name",
+                            "address",
+                            "area",
+                            "pricerange",
+                            "stars"
+                        ],
+                        "act_slot_value": [
+                            "Cityroomz",
+                            "Sleeperz Hotel, Station Road",
+                            "Centre",
+                            "moderatley priced",
+                            "0"
+                        ],
+                        "span_start": [
+                            0,
+                            24,
+                            60,
+                            81,
+                            112
+                        ],
+                        "span_end": [
+                            9,
+                            52,
+                            66,
+                            98,
+                            113
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "bookday",
+                                    "bookpeople",
+                                    "bookstay"
+                                ],
+                                "slot_value": [
+                                    "tuesday",
+                                    "7",
+                                    "3"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform",
+                            "Hotel-Inform",
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "bookpeople",
+                            "bookstay",
+                            "bookday"
+                        ],
+                        "act_slot_value": [
+                            "7",
+                            "3",
+                            "tuesday"
+                        ],
+                        "span_start": [
+                            26,
+                            39,
+                            60
+                        ],
+                        "span_end": [
+                            27,
+                            40,
+                            67
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "bookstay"
+                                ],
+                                "slot_value": [
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "bookstay"
+                                ],
+                                "slot_value": [
+                                    "3"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "bookstay"
+                        ],
+                        "act_slot_value": [
+                            "3"
+                        ],
+                        "span_start": [
+                            28
+                        ],
+                        "span_end": [
+                            29
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-Book",
+                            "general-reqmore"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "ref"
+                                ],
+                                "slot_value": [
+                                    "CYJDAR7R"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Booking-Book"
+                        ],
+                        "act_slot_name": [
+                            "ref"
+                        ],
+                        "act_slot_value": [
+                            "CYJDAR7R"
+                        ],
+                        "span_start": [
+                            58
+                        ],
+                        "span_end": [
+                            66
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Restaurant-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "area",
+                                    "pricerange"
+                                ],
+                                "slot_value": [
+                                    "west",
+                                    "expensive"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Restaurant-Inform",
+                            "Restaurant-Inform"
+                        ],
+                        "act_slot_name": [
+                            "area",
+                            "pricerange"
+                        ],
+                        "act_slot_value": [
+                            "west",
+                            "expensive"
+                        ],
+                        "span_start": [
+                            33,
+                            47
+                        ],
+                        "span_end": [
+                            37,
+                            56
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Restaurant-Inform",
+                            "Restaurant-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "area",
+                                    "choice",
+                                    "pricerange"
+                                ],
+                                "slot_value": [
+                                    "west",
+                                    "9",
+                                    "expensive"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "food"
+                                ],
+                                "slot_value": [
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Restaurant-Inform",
+                            "Restaurant-Inform",
+                            "Restaurant-Inform"
+                        ],
+                        "act_slot_name": [
+                            "choice",
+                            "pricerange",
+                            "area"
+                        ],
+                        "act_slot_value": [
+                            "9",
+                            "expensive",
+                            "west"
+                        ],
+                        "span_start": [
+                            10,
+                            12,
+                            41
+                        ],
+                        "span_end": [
+                            11,
+                            21,
+                            45
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Restaurant-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "phone",
+                                    "postcode"
+                                ],
+                                "slot_value": [
+                                    "?",
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-Inform",
+                            "Restaurant-Recommend"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "name",
+                                    "phone",
+                                    "postcode"
+                                ],
+                                "slot_value": [
+                                    "Graffiti",
+                                    "01223277977",
+                                    "cb30lx"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Restaurant-Recommend",
+                            "Restaurant-Recommend",
+                            "Restaurant-Recommend"
+                        ],
+                        "act_slot_name": [
+                            "name",
+                            "phone",
+                            "postcode"
+                        ],
+                        "act_slot_value": [
+                            "Graffiti",
+                            "01223277977",
+                            "cb30lx"
+                        ],
+                        "span_start": [
+                            12,
+                            36,
+                            68
+                        ],
+                        "span_end": [
+                            20,
+                            47,
+                            74
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-thank"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-reqmore"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-thank"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-welcome"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "dialogue_id": "PMUL3484.json",
+        "services": [
+            "restaurant",
+            "taxi",
+            "hotel"
+        ],
+        "turns": {
+            "turn_id": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19"
+            ],
+            "speaker": [
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1
+            ],
+            "utterance": [
+                "I am looking for a hotel named alyesbray lodge guest house.",
+                "i have their info, what would you like to know?",
+                "I would like to book a reservation for it. Can you help me with that?",
+                "I sure can. First, I will need to know when you want your stay to begin and how many days you'll be staying. Also, how many people will be staying?",
+                "We will be arriving on Sunday and will stay for 5 nights.",
+                "Can you tell me how many guests will be staying in the room?",
+                "There will be 8 guests.",
+                "Booking was successful. Your reference number is 4UFN3SWC . Will that be all for today?",
+                "that is it thank you.",
+                "You have a nice day then!",
+                "Can you actually look up a restaurant for me as well?",
+                "sure thing what's the area and or name?",
+                "It's a place called Don Pasquale Pizzeria.",
+                "A very nice place in the centre. Need a reservation?",
+                "Yes, I do. I'll need it booked for the same day, same people, and we'd like to eat at 19:00.",
+                "Booking was successful. The table will be reserved for 15 minutes. Reference number is : GVM0PAM2 .",
+                "Great. One more thing. Can you book a taxi between the two places? I'd like to arrive at the restaurant in time for my reservation.",
+                "Contact number 07404031593. You are in a Red Skoda.",
+                "Thank you so much that was all I needed.",
+                "Alright, hope you enjoy the rest of your day."
+            ],
+            "frames": [
+                {
+                    "service": [
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-name"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "alyesbray lodge guest house",
+                                        "aylesbray lodge guest house"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [
+                                "hotel-name"
+                            ],
+                            "value": [
+                                "alyesbray lodge guest house"
+                            ],
+                            "start": [
+                                58
+                            ],
+                            "exclusive_end": [
+                                31
+                            ],
+                            "copy_from": [
+                                ""
+                            ],
+                            "copy_from_value": [
+                                []
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-name"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "aylesbray lodge guest house",
+                                        "alyesbray lodge guest house"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "book_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-bookday",
+                                    "hotel-bookstay",
+                                    "hotel-name"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "sunday"
+                                    ],
+                                    [
+                                        "5"
+                                    ],
+                                    [
+                                        "aylesbray lodge guest house",
+                                        "alyesbray lodge guest house"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "hotel"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "book_hotel",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "hotel-bookday",
+                                    "hotel-bookpeople",
+                                    "hotel-bookstay",
+                                    "hotel-name"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "sunday"
+                                    ],
+                                    [
+                                        "8"
+                                    ],
+                                    [
+                                        "5"
+                                    ],
+                                    [
+                                        "aylesbray lodge guest house",
+                                        "alyesbray lodge guest house"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "restaurant"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_restaurant",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [],
+                                "slots_values_list": []
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "restaurant"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_restaurant",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "restaurant-name"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "don pasquale pizzeria"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [
+                                "restaurant-name"
+                            ],
+                            "value": [
+                                "Don Pasquale Pizzeria"
+                            ],
+                            "start": [
+                                41
+                            ],
+                            "exclusive_end": [
+                                20
+                            ],
+                            "copy_from": [
+                                ""
+                            ],
+                            "copy_from_value": [
+                                []
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "restaurant",
+                        "taxi"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "book_restaurant",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "restaurant-bookday",
+                                    "restaurant-bookpeople",
+                                    "restaurant-booktime",
+                                    "restaurant-name"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "sunday"
+                                    ],
+                                    [
+                                        "8"
+                                    ],
+                                    [
+                                        "19:00"
+                                    ],
+                                    [
+                                        "don pasquale pizzeria"
+                                    ]
+                                ]
+                            }
+                        },
+                        {
+                            "active_intent": "find_taxi",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [],
+                                "slots_values_list": []
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [
+                                "restaurant-booktime"
+                            ],
+                            "value": [
+                                "19:00"
+                            ],
+                            "start": [
+                                91
+                            ],
+                            "exclusive_end": [
+                                86
+                            ],
+                            "copy_from": [
+                                ""
+                            ],
+                            "copy_from_value": [
+                                []
+                            ]
+                        },
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "taxi"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_taxi",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "taxi-arriveby",
+                                    "taxi-departure",
+                                    "taxi-destination"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "19:00"
+                                    ],
+                                    [
+                                        "alyesbray lodge guest house",
+                                        "aylesbray lodge guest house"
+                                    ],
+                                    [
+                                        "don pasquale pizzeria"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [
+                                "taxi-destination",
+                                "taxi-departure",
+                                "taxi-arriveby"
+                            ],
+                            "value": [
+                                "",
+                                "",
+                                ""
+                            ],
+                            "start": [
+                                -1,
+                                -1,
+                                -1
+                            ],
+                            "exclusive_end": [
+                                -1,
+                                -1,
+                                -1
+                            ],
+                            "copy_from": [
+                                "restaurant-name",
+                                "hotel-name",
+                                "restaurant-booktime"
+                            ],
+                            "copy_from_value": [
+                                [
+                                    "don pasquale pizzeria"
+                                ],
+                                [
+                                    "alyesbray lodge guest house",
+                                    "aylesbray lodge guest house"
+                                ],
+                                [
+                                    "19:00"
+                                ]
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                }
+            ],
+            "dialogue_acts": [
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "name"
+                                ],
+                                "slot_value": [
+                                    "alyesbray lodge guest house"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "name"
+                        ],
+                        "act_slot_value": [
+                            "alyesbray lodge guest house"
+                        ],
+                        "span_start": [
+                            31
+                        ],
+                        "span_end": [
+                            58
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-reqmore"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-Inform",
+                            "Booking-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "bookday",
+                                    "bookpeople",
+                                    "bookstay"
+                                ],
+                                "slot_value": [
+                                    "?",
+                                    "?",
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "bookday",
+                                    "bookstay"
+                                ],
+                                "slot_value": [
+                                    "sunday",
+                                    "5"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform",
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "bookday",
+                            "bookstay"
+                        ],
+                        "act_slot_value": [
+                            "sunday",
+                            "5"
+                        ],
+                        "span_start": [
+                            23,
+                            48
+                        ],
+                        "span_end": [
+                            29,
+                            49
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "bookpeople"
+                                ],
+                                "slot_value": [
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "bookpeople"
+                                ],
+                                "slot_value": [
+                                    "8"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Hotel-Inform"
+                        ],
+                        "act_slot_name": [
+                            "bookpeople"
+                        ],
+                        "act_slot_value": [
+                            "8"
+                        ],
+                        "span_start": [
+                            14
+                        ],
+                        "span_end": [
+                            15
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-Book",
+                            "general-reqmore"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "ref"
+                                ],
+                                "slot_value": [
+                                    "4UFN3SWC"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Booking-Book"
+                        ],
+                        "act_slot_name": [
+                            "ref"
+                        ],
+                        "act_slot_value": [
+                            "4UFN3SWC"
+                        ],
+                        "span_start": [
+                            49
+                        ],
+                        "span_end": [
+                            57
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-thank"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-bye"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Restaurant-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Restaurant-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "area",
+                                    "name"
+                                ],
+                                "slot_value": [
+                                    "?",
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Restaurant-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "name"
+                                ],
+                                "slot_value": [
+                                    "don pasquale pizzeria"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Restaurant-Inform"
+                        ],
+                        "act_slot_name": [
+                            "name"
+                        ],
+                        "act_slot_value": [
+                            "don pasquale pizzeria"
+                        ],
+                        "span_start": [
+                            20
+                        ],
+                        "span_end": [
+                            41
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-Inform",
+                            "Restaurant-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "area"
+                                ],
+                                "slot_value": [
+                                    "centre"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Restaurant-Inform"
+                        ],
+                        "act_slot_name": [
+                            "area"
+                        ],
+                        "act_slot_value": [
+                            "centre"
+                        ],
+                        "span_start": [
+                            25
+                        ],
+                        "span_end": [
+                            31
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Restaurant-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "bookday",
+                                    "bookpeople",
+                                    "booktime"
+                                ],
+                                "slot_value": [
+                                    "sunday",
+                                    "8",
+                                    "19:00"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Restaurant-Inform",
+                            "Restaurant-Inform",
+                            "Restaurant-Inform"
+                        ],
+                        "act_slot_name": [
+                            "bookday",
+                            "bookpeople",
+                            "booktime"
+                        ],
+                        "act_slot_value": [
+                            "sunday",
+                            "8",
+                            "19:00"
+                        ],
+                        "span_start": [
+                            39,
+                            49,
+                            86
+                        ],
+                        "span_end": [
+                            47,
+                            60,
+                            91
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Booking-Book"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "ref"
+                                ],
+                                "slot_value": [
+                                    "GVM0PAM2"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Booking-Book"
+                        ],
+                        "act_slot_name": [
+                            "ref"
+                        ],
+                        "act_slot_value": [
+                            "GVM0PAM2"
+                        ],
+                        "span_start": [
+                            89
+                        ],
+                        "span_end": [
+                            97
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Taxi-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "arriveby"
+                                ],
+                                "slot_value": [
+                                    "19:00"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Taxi-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "phone",
+                                    "type"
+                                ],
+                                "slot_value": [
+                                    "07404031593",
+                                    "Red Skoda"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Taxi-Inform",
+                            "Taxi-Inform"
+                        ],
+                        "act_slot_name": [
+                            "phone",
+                            "type"
+                        ],
+                        "act_slot_value": [
+                            "07404031593",
+                            "Red Skoda"
+                        ],
+                        "span_start": [
+                            15,
+                            41
+                        ],
+                        "span_end": [
+                            26,
+                            50
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-thank"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-bye"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "dialogue_id": "SNG0389.json",
+        "services": [
+            "train"
+        ],
+        "turns": {
+            "turn_id": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17"
+            ],
+            "speaker": [
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1,
+                0,
+                1
+            ],
+            "utterance": [
+                "i need a train on tuesday out of kings lynn",
+                "What time of day would you like to leave?",
+                "I want to leave on Tuesday.",
+                "Do you have a time you'd like to leave?",
+                "I'd like to leave after 9:30.",
+                "Is that 9:30 AM or PM?",
+                "Looking for a train Tuesday leaving kings lynn after 9:30 to go to cambridge.",
+                "I'm sorry, I'm not seeing any trains for that time. Would you like to try another time or a different route?",
+                "No, I'd like a train leaving after 09:30 departing from Kings Lynn and going to Cambridge. Please take another look?",
+                "There are no trains running at this time. Can I narrow your search in any way?",
+                "Wow...no, I really needed that time. I guess not. Thanks anyway.",
+                "I do have a train living at 10:11 of that would work for you.",
+                "Yes, that works. Please book for two people. Thanks for checking again.",
+                "It's my pleasure. You're booked with reference HXG3N56O . The total fee is 19.6 GBP payable at the station. May I help with anything else?",
+                "Perfect. Thank you for your help. Have a great day. Bye.",
+                "Thank you for using our service, goodbye.",
+                "Have a nice day.",
+                "Booking was successful, the total fee is 19.6 GBP payable at the station . Reference number is : HXG3N56O ."
+            ],
+            "frames": [
+                {
+                    "service": [
+                        "train"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_train",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "train-day",
+                                    "train-departure"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "tuesday"
+                                    ],
+                                    [
+                                        "kings lynn"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "train"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_train",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "train-day",
+                                    "train-departure"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "tuesday"
+                                    ],
+                                    [
+                                        "kings lynn"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "train"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_train",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "train-day",
+                                    "train-departure",
+                                    "train-leaveat"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "tuesday"
+                                    ],
+                                    [
+                                        "kings lynn"
+                                    ],
+                                    [
+                                        "9:30",
+                                        "09:30"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [
+                                "train-leaveat"
+                            ],
+                            "value": [
+                                "9:30"
+                            ],
+                            "start": [
+                                28
+                            ],
+                            "exclusive_end": [
+                                24
+                            ],
+                            "copy_from": [
+                                ""
+                            ],
+                            "copy_from_value": [
+                                []
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "train"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_train",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "train-day",
+                                    "train-departure",
+                                    "train-destination",
+                                    "train-leaveat"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "tuesday"
+                                    ],
+                                    [
+                                        "kings lynn"
+                                    ],
+                                    [
+                                        "cambridge"
+                                    ],
+                                    [
+                                        "09:30",
+                                        "9:30"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "train"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_train",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "train-day",
+                                    "train-departure",
+                                    "train-destination",
+                                    "train-leaveat"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "tuesday"
+                                    ],
+                                    [
+                                        "kings lynn"
+                                    ],
+                                    [
+                                        "cambridge"
+                                    ],
+                                    [
+                                        "09:30",
+                                        "9:30"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "train"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "find_train",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "train-day",
+                                    "train-departure",
+                                    "train-destination",
+                                    "train-leaveat"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "tuesday"
+                                    ],
+                                    [
+                                        "kings lynn"
+                                    ],
+                                    [
+                                        "cambridge"
+                                    ],
+                                    [
+                                        "09:30",
+                                        "9:30"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "train"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "book_train",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "train-bookpeople",
+                                    "train-day",
+                                    "train-departure",
+                                    "train-destination",
+                                    "train-leaveat"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "2"
+                                    ],
+                                    [
+                                        "tuesday"
+                                    ],
+                                    [
+                                        "kings lynn"
+                                    ],
+                                    [
+                                        "cambridge"
+                                    ],
+                                    [
+                                        "09:30",
+                                        "9:30"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                },
+                {
+                    "service": [
+                        "train"
+                    ],
+                    "state": [
+                        {
+                            "active_intent": "book_train",
+                            "requested_slots": [],
+                            "slots_values": {
+                                "slots_values_name": [
+                                    "train-bookpeople",
+                                    "train-day",
+                                    "train-departure",
+                                    "train-destination",
+                                    "train-leaveat"
+                                ],
+                                "slots_values_list": [
+                                    [
+                                        "2"
+                                    ],
+                                    [
+                                        "tuesday"
+                                    ],
+                                    [
+                                        "kings lynn"
+                                    ],
+                                    [
+                                        "cambridge"
+                                    ],
+                                    [
+                                        "09:30",
+                                        "9:30"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "slot": [],
+                            "value": [],
+                            "start": [],
+                            "exclusive_end": [],
+                            "copy_from": [],
+                            "copy_from_value": []
+                        }
+                    ]
+                },
+                {
+                    "service": [],
+                    "state": [],
+                    "slots": []
+                }
+            ],
+            "dialogue_acts": [
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Train-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "day",
+                                    "departure"
+                                ],
+                                "slot_value": [
+                                    "tuesday",
+                                    "kings lynn"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Train-Inform",
+                            "Train-Inform"
+                        ],
+                        "act_slot_name": [
+                            "day",
+                            "departure"
+                        ],
+                        "act_slot_value": [
+                            "tuesday",
+                            "kings lynn"
+                        ],
+                        "span_start": [
+                            18,
+                            33
+                        ],
+                        "span_end": [
+                            25,
+                            43
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Train-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "leaveat"
+                                ],
+                                "slot_value": [
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [],
+                        "act_slots": []
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Train-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "leaveat"
+                                ],
+                                "slot_value": [
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Train-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "leaveat"
+                                ],
+                                "slot_value": [
+                                    "9:30"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Train-Inform"
+                        ],
+                        "act_slot_name": [
+                            "leaveat"
+                        ],
+                        "act_slot_value": [
+                            "9:30"
+                        ],
+                        "span_start": [
+                            24
+                        ],
+                        "span_end": [
+                            28
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Train-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "leaveat"
+                                ],
+                                "slot_value": [
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Train-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "day",
+                                    "departure",
+                                    "destination"
+                                ],
+                                "slot_value": [
+                                    "tuesday",
+                                    "kings lynn",
+                                    "cambridge"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Train-Inform",
+                            "Train-Inform",
+                            "Train-Inform"
+                        ],
+                        "act_slot_name": [
+                            "day",
+                            "departure",
+                            "destination"
+                        ],
+                        "act_slot_value": [
+                            "tuesday",
+                            "kings lynn",
+                            "cambridge"
+                        ],
+                        "span_start": [
+                            20,
+                            36,
+                            67
+                        ],
+                        "span_end": [
+                            27,
+                            46,
+                            76
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Train-NoOffer",
+                            "Train-Request"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "departure",
+                                    "destination",
+                                    "leaveat"
+                                ],
+                                "slot_value": [
+                                    "?",
+                                    "?",
+                                    "?"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Train-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "departure",
+                                    "destination",
+                                    "leaveat"
+                                ],
+                                "slot_value": [
+                                    "kings lynn",
+                                    "cambridge",
+                                    "09:30"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Train-Inform",
+                            "Train-Inform",
+                            "Train-Inform"
+                        ],
+                        "act_slot_name": [
+                            "leaveat",
+                            "departure",
+                            "destination"
+                        ],
+                        "act_slot_value": [
+                            "09:30",
+                            "kings lynn",
+                            "cambridge"
+                        ],
+                        "span_start": [
+                            35,
+                            56,
+                            80
+                        ],
+                        "span_end": [
+                            40,
+                            66,
+                            89
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Train-NoOffer"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-thank"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Train-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "leaveat"
+                                ],
+                                "slot_value": [
+                                    "10:11"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Train-Inform"
+                        ],
+                        "act_slot_name": [
+                            "leaveat"
+                        ],
+                        "act_slot_value": [
+                            "10:11"
+                        ],
+                        "span_start": [
+                            28
+                        ],
+                        "span_end": [
+                            33
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Train-Inform"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "bookpeople"
+                                ],
+                                "slot_value": [
+                                    "2"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Train-Inform"
+                        ],
+                        "act_slot_name": [
+                            "bookpeople"
+                        ],
+                        "act_slot_value": [
+                            "2"
+                        ],
+                        "span_start": [
+                            33
+                        ],
+                        "span_end": [
+                            36
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Train-OfferBooked",
+                            "general-reqmore"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "price",
+                                    "ref"
+                                ],
+                                "slot_value": [
+                                    "19.6 GBP",
+                                    "HXG3N56O"
+                                ]
+                            },
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Train-OfferBooked",
+                            "Train-OfferBooked"
+                        ],
+                        "act_slot_name": [
+                            "ref",
+                            "price"
+                        ],
+                        "act_slot_value": [
+                            "HXG3N56O",
+                            "19.6 GBP"
+                        ],
+                        "span_start": [
+                            47,
+                            75
+                        ],
+                        "span_end": [
+                            55,
+                            83
+                        ]
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-bye"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-bye"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "general-bye"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "none"
+                                ],
+                                "slot_value": [
+                                    "none"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [],
+                        "act_slot_name": [],
+                        "act_slot_value": [],
+                        "span_start": [],
+                        "span_end": []
+                    }
+                },
+                {
+                    "dialog_act": {
+                        "act_type": [
+                            "Train-OfferBooked"
+                        ],
+                        "act_slots": [
+                            {
+                                "slot_name": [
+                                    "price",
+                                    "ref"
+                                ],
+                                "slot_value": [
+                                    "19.6 GBP",
+                                    "HXG3N56O"
+                                ]
+                            }
+                        ]
+                    },
+                    "span_info": {
+                        "act_type": [
+                            "Train-OfferBooked",
+                            "Train-OfferBooked"
+                        ],
+                        "act_slot_name": [
+                            "price",
+                            "ref"
+                        ],
+                        "act_slot_value": [
+                            "19.6 GBP",
+                            "HXG3N56O"
+                        ],
+                        "span_start": [
+                            41,
+                            97
+                        ],
+                        "span_end": [
+                            49,
+                            105
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+]

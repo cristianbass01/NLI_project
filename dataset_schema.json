@@ -1,0 +1,174 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "MultiWOZ Dataset Entry",
+    "type": "object",
+    "properties": {
+        "dialogue_id": {
+            "type": "string",
+            "description": "A unique identifier for the dialogue."
+        },
+        "services": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of services involved in the dialogue (e.g., restaurant, hotel)."
+        },
+        "turns": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "turn_id": {
+                        "type": "string",
+                        "description": "A unique identifier for each turn within the dialogue."
+                    },
+                    "speaker": {
+                        "type": "integer",
+                        "description": "Indicator of the speaker, where 0 is for the user and 1 is for the system."
+                    },
+                    "utterance": {
+                        "type": "string",
+                        "description": "The text of the utterance made in this turn."
+                    },
+                    "frames": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "service": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "description": "Services being discussed in this turn."
+                                },
+                                "state": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "active_intent": {
+                                                "type": "string",
+                                                "description": "The active intent of the user in the context of this turn."
+                                            },
+                                            "requested_slots": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "description": "Slots that the user has requested information about."
+                                            },
+                                            "slots_values": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "slots_values_name": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "description": "Names of the slots filled in this turn."
+                                                    },
+                                                    "slots_values_list": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "description": "Values for the slots filled in this turn."
+                                                    }
+                                                },
+                                                "description": "Current values for the slots filled in this turn."
+                                            }
+                                        }
+                                    },
+                                    "description": "State of the dialogue in this turn, including intents and slots."
+                                },
+                                "slots": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "slot": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "description": "Names of slots mentioned in this turn."
+                                            },
+                                            "value": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "description": "Values for the slots mentioned in this turn."
+                                            },
+                                            "start": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "integer"
+                                                },
+                                                "description": "Start indices of slot values in the utterance."
+                                            },
+                                            "exclusive_end": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "integer"
+                                                },
+                                                "description": "Exclusive end indices of slot values in the utterance."
+                                            },
+                                            "copy_from": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "description": "Identifies if a slot value is copied from another part of the dialogue."
+                                            },
+                                            "copy_from_value": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "description": "The actual values that are copied if 'copy_from' is used."
+                                            }
+                                        }
+                                    },
+                                    "description": "Information about slots mentioned in this turn."
+                                }
+                            },
+                            "required": [
+                                "service",
+                                "state",
+                                "slots"
+                            ],
+                            "description": "Detailed information about the current turn."
+                        }
+                    },
+                    "dialogue_acts": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        },
+                        "description": "Dialogue acts present in this turn."
+                    }
+                },
+                "required": [
+                    "turn_id",
+                    "speaker",
+                    "utterance",
+                    "frames"
+                ],
+                "description": "Represents a single turn in the dialogue, including the speaker, utterance, and frames."
+            },
+            "description": "Sequence of turns comprising the dialogue."
+        }
+    },
+    "required": [
+        "dialogue_id",
+        "services",
+        "turns"
+    ],
+    "description": "Schema for an entry in the MultiWOZ dataset, representing a complete dialogue with multiple turns."
+}
