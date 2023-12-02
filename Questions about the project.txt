@@ -1,0 +1,86 @@
+Questions about the project 1
+
+Embedding Techniques
+Q: Is it mandatory to develop our own embedder, or are we permitted to utilize existing embedders like those provided by spaCy or BERT? Would employing a pre-trained embedder have any adverse impact on our grade, provided that it meets the project objectives?
+
+A: Of course, you are expected to utilize existing word-embedding models. That's exactly why I show in the tutorial how to load Glove and fastText embeddings. We also discussed in the class that you can use any model from huggingface, including SentenceBERT that would return you good similarity scores for sentences based on their embeddings.
+The only thing that is not permitted is to use the classification models that were already trained exactly on this MultiWOZ dataset to solve some of the subtasks.
+
+Utilizing Existing NER Models
+Q: In a previous lecture, you illustrated an idea about leveraging already established NER models as mentioned in the project specifications. Could you please confirm if proceeding with this approach aligns well with the project's expectations?
+
+A: You can use NER models and their outcomes. However, the outcome doesn't solve the problem on its own. You will need to find a way to utilize this information about named entities to extract slots and values with high accuracy. Maybe, the outcome of NER is going to be just an input to a classifier that you are going to train.
+
+Q: Also, should we avoid the models you marked as "operating through text files, not convenient"?
+
+A: Whatever makes you advance faster will work. It is not very convenient to work through text files, but if you find the code simpler for you, go for it.
+
+Exploration of Approaches 
+Q: In terms of evaluating our project, how extensive should our exploration of different methodologies be for each task? For instance, if the first approach we try has already an outstanding performance, should we still try other approaches?
+
+A: Focus on more complicated tasks if you are lucky to find an outstanding approach for one of the tasks very fast. But check it properly with your examples that it works correctly. Maybe, we just have a mistake in the evaluation scores that creates an impression of good performance.
+
+Dataset
+Q: In the dataset, we've found that slots have values in both dialogue acts and frames. Should we use the values in the frames only? Below there is an example of a dialogue act with slot values.
+
+A: Check carefully the Colab notebook with the evaluation that I created for you. It shall be clear from there, which values we use for which subtask.
+
+
+Questions about the project 2
+
+Q: We have found several instances where the user asks for a hotel/restaurant recommendation, with the agent providing several choices (e.g., african or asian food). What should we do in those cases? Do we provide what the testing dataset expects us to, or should we provide some random options based on what we found on the training dataset?
+
+A: As we discussed in class, we won't predict values for the slots when we predict slots for Agnet's turn. Slot name "food" is enough. You can leave the values blank or random, they do not participate in the evaluation metric as you can see from the code.
+
+Q: - Given that all evaluations are based on the semantic frames, should we generate answer utterances for our agent?
+
+A: No, you don't need to generate utterances. Use those from the dataset to output the agent's and user's responses. What we need to see is the reasoning that happens in between the utterances inside the dialogue agent.
+
+Q: - We have been analyzing the multiWOZ dataset a bit on https://github.com/budzianowski/multiwoz/tree/master/data/MultiWOZ_2.2, and we found that the semantic frame slots are divided between categorical and non-categorical slots. Do you know what is the difference between them and if this is something we should take into account?
+
+A: Of course, take into account the available values for each slot. For example, the price range for restaurants is not any interval like 10-20$, 20-30$, 40-50$.... Instead, it is within some small number of categorical values like "cheap", "expensive", "dont care". You will see all the available values from the training dataset. This limits the number of values you can predict. While for non-categorical slots any value of a specific type can be expected. For example, for the number of people, or number of nights, you would expect integers 1/2/3/4.../10, etc. Still, I believe there cannot be any random integer like 200, or 400. Perhaps, they all are somewhat below 20 - you can take this into account when you extract numbers and decide what each of them means.
+
+
+Questions about the project 3
+
+Q1) Since we are only concerned about hotel and restaurant domains, could we remove all utterances pertaining to other domains from the dataset? We have also thought about changing their label to ['other'] to reduce the number of classes. Is any approach better than the other? And in that case why?
+
+A: You can remove utterances of other classes in the dataset for information extraction and for the dataset for agent turn prediction (both for dialogue acts and slot name prediction), i.e., for tasks 2 and 3. But for the first task, for the user's dialogue act prediction, we need to classify each utterance whether it is from the domain of restaurants or hotels with a specific action (e.g., Hotel-Inform, Restaurant-Request) or from another domain. Indeed, you can replace all the labels for other classes with more general labels. E.g., Train-Inform -> Other, Train-Request -> Other, Taxi-Inform -> Other. There might be a chance that the classification will work better with domain labels Train-Inform -> Train, Taxi-Inform -> Taxi because the model won't need to learn why topically different texts shall be joined into a single class Other (but at the same time it does not need to learn to distinguish "-xxx" action for every domain).
+
+Q2) In a case where an utterance has more than one label and one of them is from a domain different than hotel or restaurant (e.g: ['Restaurant-xxxx', 'Train-xxxx']), should we remove the other label and keep it only as ['Restaurant-xxxx']?
+
+A: I believe if you remove the "Train-xxx" label and leave only "Restaurant-xxx" in the mixed-domain examples of the training dataset, the model will erroneously learn that utterances that include something about train reservation are about restaurants (as it will be the only label, but the utterance contains text about trains). So, let's keep these out-of-domain labels for the first task. This way the agent will be able to recognize whether the user's utterance is beyond the scope of the possibilities of the agent or from one of the domains it can assist.
+
+Alternatively, you can try removing examples with these mixed utterances from the training set, to give the model clear signals of what restaurant and hotel domains are about, and how other domains look like. But for prediction and evaluation, I would ask you to use all of the examples including mixed, to check how accurately the model identifies when something is out of the domain it is supposed to work with.
+
+Of course, while you are testing whether your training works correctly at all, you can remove examples with the labels of other domains completely from all the subsets and evaluate the model only on pure hotel/restaurant examples. This way you will see the expected upper boundary for evaluation scores before you introduce the "Other" class. You can provide this additional evaluation in your reports and presentations.
+
+
+Questions about the project 4
+
+Q: We now noticed that in most dialogues, we cannot be completely sure if the agent is going to make a recommendation due to not having available data (for example, for the previous user's example utterance, "I'm sorry, I don't know about any asian restaurants in the center, would you prefer spanish food?") or if it's going to make a request for more information (e.g. "Ok, for how many people?")
+
+In these cases, for the agent's turn, do we have to randomly guess that the agent's next move is a recommendation or a request for more information and provide appropriate semantic frame slots? Or do we have to get the agent's move from the test dataset and then guess which slot names should we recommend or request?
+
+A: When data are not available we have one of the following dialogue acts:
+'Booking-NoBook',
+'Restaurant-NoOffer',
+'Hotel-NoOffer'.
+
+Indeed, predicting slots for these acts is tricky because we don't have information on what actually was not available. I would skip these situations rather than use the resulting agent's utterance as input because it would make the task similar to information extraction from the text (task 2) rather than planning.
+
+Predicting these acts also doesn't make sense because they depend on the availability of data rather than on dialogue history.
+
+So, you may remove these cases from the training subset (and other subsets), and train the model only on "successful" turns when the booking was available, places were found, etc.
+
+I know that sometimes data are not available and the annotators still use a general act like "Restaurant-Inform" but I believe this is a mistake in the annotation and there shall not be many such cases. You may identify them by some keywords like "sorry", "unfortunately", "no", "not", "n't", etc. and similarly remove them, but I am not sure how accurate it will be (you may not remove everything, or remove some "successful" turns as well). So, I am fine with keeping them and treating them just as noise in training data. Also, the evaluation scores will be lower because of such cases but I don't think that dramatically lower.
+
+
+Questions about the project 5 
+
+Q: We looked at the dataset and found that it's still impossible to predict the required information from the information given to us for "to_be_retrieved".
+
+A: Indeed, it is impossible to predict it 100% correct (not impossible at all), as the dataset is slightly ambiguous for this task. But it doesn't mean the model cannot learn anything useful from it. It might be even the case, that the model started predicting slots more reasonably than what was offered by people who simulated the dialogues (not always they were consistent in their responses). This is a peculiarity of the dialogue management domain, that you never had 100% clean data to train your model with. What helps here is the manual evaluation/analysis of individual predictions when you start simulating the entire dialogue. It still makes sense to have a quantitative evaluation which will give you a rough approximation of how well the agent learns from the training set, but manual inspection is required as well.
+
+In fact, the manual inspection of individual predictions is required for all the tasks as this is what we will see at the live demonstration. As with any machine learning application, high scores of the global metrics on the test set do not guarantee that you will have reliable predictions on the new data in real simulations. This is something to check separately.
+

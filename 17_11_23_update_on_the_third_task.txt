@@ -1,0 +1,78 @@
+Dear all,
+
+As the inconsistency in the agent's move flow has been spotted, we had to slightly reorganize the third task.
+
+Now, prior to the planning phase, there is a retrieval phase which I managed to simulate within the possibilities for this dataset.
+
+Before we had the following structure to be predicted:
+
+Planned move per dialogue act (we won't evaluate this anymore):
+         Restaurant-Inform
+         To be provided: ['choice:three', 'food:international']
+         To be requested: []
+         --------------
+         Restaurant-Request
+         To be provided: []
+         To be requested: ['pricerange:?']
+As you can see, some slots depend on the availability of the data in the knowledge base to which we don't have access, and moreover, the dialogue acts themselves depend on the availability of these data.
+
+Therefore, we will have the following logic in the agent from now on:
+
+Agent's turn
+Retrieval
+     Information to be retrieved:
+         To be retrieved: ['restaurant-availability', 'restaurant-food'] <--- That's the first thing we predict in agent's move.
+     Retrieved information:
+         Retrieved info to be provided: ['restaurant-availability:yes', 'restaurant-choice:three', 'restaurant-food:international']
+Planning
+     Agent's move (dialogue acts): ['Restaurant-Inform', 'Restaurant-Request'] <--- That's the second thing we predict in agent's move.
+     Information to be requested:
+         To be requested: ['restaurant-pricerange'] <--- That's the third thing we predict in agent's move.
+         --------------
+Agent's utterance: There are three international restaurants in Cambridge. Do you have a price preference?
+As you can see
+
+a) I have added 'restaurant-availability', 'hotel-availability', 'booking-availability' slots which are not in the original dataset. Using them we can see explicitly that the agent did a check of whether it can book or offer some choice;
+
+b) Now, the first step is to predict what shall be retrieved (before it was treated as "what shall be provided" and we did it after predicting dialogue acts, but now we do it before); the second step is to predict dialogue acts of the agent; the third step is to predict what information shall be requested. The second and the third steps use the results of the retrieval, i.e. they use slots which we requested at the first step and their values (including "yes/no" for the availability slot).
+
+c) We won't predict the slot "choice" at the first step. It depends only on the available data. Before this task reorganization it was not clear how we can predict and expect some choice if we don't have the knowledge base at hand. However, this slot may appear at the results of the retrieval as it can be useful to predict dialogue acts and what else to be requested.
+
+Important: the results of the retrieval shall not be predicted - they will be provided as ground truth input data to the function for the second and the third steps.
+
+I made corresponding changes in the evaluation notebook.
+
+NLI notebook for project evaluation EMAI (task 3 updated).ipynb
+
+Since now step_1 is performed separately from step2+step3, we have 4 functions in total to fulfill (the number of subtasks remains the same, we just have a better structure with improved definitions of inputs and outputs).
+
+def Dialogue_Act_Prediction(user_utterance, other_features_from_dialogue_history):
+    user_dialogue_acts = ['Hotel-Inform']
+    return user_dialogue_acts
+def Extract_and_Categorize_Spans(user_utterance, user_dialogue_acts, other_features_from_dialogue_history2):
+    extracted_information = [('hotel-bookpeople', '2'), ('hotel-bookstay', '2'), ('hotel-bookday', 'sunday'), ('restaurant-phone', '?')]
+    return extracted_information
+def Information_to_be_retrieved_Prediction(user_dialogue_acts, extracted_information, other_features_from_dialogue_history3):
+    to_be_retrieved = set(['hotel-area', 'hotel-name', 'restaurant-name', 'restaurant-phone', 'restaurant-address', 'booking-ref'])
+    return to_be_retrieved
+def Agent_Move_Prediction(user_dialogue_acts, extracted_information, retrieved_information, other_features_from_dialogue_history4):
+    agent_dialogue_acts = ["Booking-Request", "Hotel-Recommend", "Restaurant-Inform"]
+    to_be_requested = set(['booking-bookday', 'booking-bookpeople', 'restaurant-pricerange'])
+    return {"agent_dialogue_acts":agent_dialogue_acts,
+            "to_be_requested":to_be_requested}
+You will find other changes in the part of the analysis of the agent's turn in the cell below in this notebook.
+
+
+
+You can also continue working within the previous, original, formulation of the task:
+
+NLI notebook for project evaluation EMAI (original version).ipynb
+
+But I encourage you to move to a new notebook as this formulation makes more sense and you will have much more interpretable results at the end without a need to blame the inconsistency in data.
+
+NLI notebook for project evaluation EMAI (task 3 updated).ipynb
+
+Best regards,
+
+Alex
+
