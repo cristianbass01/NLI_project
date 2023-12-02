@@ -11,6 +11,7 @@ import os
 import re
 
 TRANSFORMER_MODEL_NAME = 'roberta-base'
+TRANSFORMER_MODEL_SUFFIX = 'with_intent'
 MODEL_PATH = 'saved_models'
 
 def map_slot_value(input: str):
@@ -75,12 +76,12 @@ def map_slot_value(input: str):
     return output
     
 class SlotFiller():
-    def __init__(self, model_path, model_name, cuda = False):
+    def __init__(self, model_path, model_name, model_suffix, cuda = False):
         self.cuda = cuda
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         # !!! Make sure to change this as well if tags are changed
-        self.possible_tags = ['B-area', 'B-bookday', 'B-bookpeople', 'B-bookstay', 'B-booktime', 'B-food', 'B-name', 'B-pricerange', 'B-stars', 'B-type', 'I-area', 'I-bookday', 'I-bookpeople', 'I-booktime', 'I-food', 'I-name', 'I-pricerange', 'I-type', 'O']
-        self.transformer = RobertaForTokenClassification.from_pretrained(os.path.join(model_path, 'SF_' + model_name), num_labels = len(self.possible_tags))
+        self.possible_tags = ['B-hotel-area', 'B-hotel-bookday', 'B-hotel-bookpeople', 'B-hotel-bookstay', 'B-hotel-name', 'B-hotel-pricerange', 'B-hotel-stars', 'B-hotel-type', 'B-restaurant-area', 'B-restaurant-bookday', 'B-restaurant-bookpeople', 'B-restaurant-booktime', 'B-restaurant-food', 'B-restaurant-name', 'B-restaurant-pricerange', 'I-hotel-area', 'I-hotel-bookday', 'I-hotel-bookpeople', 'I-hotel-name', 'I-hotel-pricerange', 'I-hotel-type', 'I-restaurant-area', 'I-restaurant-bookday', 'I-restaurant-bookpeople', 'I-restaurant-booktime', 'I-restaurant-food', 'I-restaurant-name', 'I-restaurant-pricerange', 'O']
+        self.transformer = RobertaForTokenClassification.from_pretrained(os.path.join(model_path, 'SF_' + model_name + '_' + model_suffix), num_labels = len(self.possible_tags))
         if self.cuda:
             self.transformer = self.transformer.cuda()
         self.transformer.eval()
@@ -126,7 +127,7 @@ class SlotFiller():
                 span_end  = tokenized.token_to_chars(i - 1)[1]
                 tags.append((cur_type, utterance[span_start : span_end]))
         
-        #Map tags
+        # Map tags
         tags = [(tag[0], map_slot_value(tag[1])) for tag in tags]
         
         return tags
