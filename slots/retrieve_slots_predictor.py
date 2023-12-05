@@ -34,6 +34,6 @@ class RetrieveSlotsPredictorLSTM:
         out = self.intent_classifier(embedding[None, :])
         if self.cuda:
             out = out.cpu()
-        out = (out > 0.5).detach().numpy()
+        out = (out > 0).detach().numpy()
         intents = self.mlb.inverse_transform(out)[0]
         return intents
