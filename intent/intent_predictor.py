@@ -3,6 +3,7 @@ import os
 import pickle
 from transformers import AutoTokenizer, BertModel, logging
 from torch import load
+import torch
 
 logging.set_verbosity_error()
 
@@ -27,13 +28,14 @@ class IntentPredictorLSTM:
         self.intent_classifier.eval()
 
     def predict(self, utterance):
-        tokenized = self.tokenizer(utterance)
-        embedding = self.embedding_matrix[tokenized.input_ids]
-        if self.cuda:
-            embedding = embedding.cuda()
-        out = self.intent_classifier(embedding[None, :])
-        if self.cuda:
-            out = out.cpu()
-        out = (out > 0).detach().numpy()
-        intents = self.mlb.inverse_transform(out)[0]
-        return intents
+        with torch.no_grad():
+            tokenized = self.tokenizer(utterance)
+            embedding = self.embedding_matrix[tokenized.input_ids]
+            if self.cuda:
+                embedding = embedding.cuda()
+            out = self.intent_classifier(embedding[None, :])
+            if self.cuda:
+                out = out.cpu()
+            out = (out > 0).detach().numpy()
+            intents = self.mlb.inverse_transform(out)[0]
+            return intents

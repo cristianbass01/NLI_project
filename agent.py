@@ -1,10 +1,14 @@
 import sys
 sys.path.append('intent')
 sys.path.append('slots')
+sys.path.append('agent_move')
 
 import intent.intent_predictor as INT
 import slots.slot_filler as SF
 import slots.retrieve_slots_predictor as RETR
+import agent_move.to_be_retrieved_predictor as MOVE_RETR
+import agent_move.agent_acts_predictor as MOVE_AGENT_ACTS
+import agent_move.to_be_requested_predictor as MOVE_AGENT_REQ
 
 INT_MODEL_NAME = 'LSTM_BERT_HISTORY'
 INT_MODEL_PATH = 'intent/saved_models'
@@ -16,6 +20,15 @@ SF_MODEL_PATH = 'slots/saved_models'
 RETR_MODEL_NAME = 'LSTM_BERT_HISTORY'
 RETR_MODEL_PATH = 'slots/saved_models'
 
+MOVE_RETR_MODEL_NAME = 'SVC'
+MOVE_RETR_MODEL_PATH = 'agent_move/saved_models'
+
+MOVE_AGENT_ACTS_MODEL_NAME = 'LSTM'
+MOVE_AGENT_ACTS_MODEL_PATH = 'agent_move/saved_models'
+
+MOVE_AGENT_REQ_MODEL_NAME = 'LSTM'
+MOVE_AGENT_REQ_MODEL_PATH = 'agent_move/saved_models'
+
 # INT_model = INT.IntentPredictorLSTM(INT_MODEL_PATH, INT_MODEL_NAME, cuda = False)
 # print(INT_model.predict('I want to book a hotel and also want a table for 2 at a restaurant in the city center for 2 people'))
 
@@ -25,9 +38,16 @@ RETR_MODEL_PATH = 'slots/saved_models'
 
 class Agent():
     def __init__(self, intent_use_history = False, slot_use_history = False):
+        # Intent
         self.INT_model = INT.IntentPredictorLSTM(INT_MODEL_PATH, INT_MODEL_NAME, cuda = False)
+        # Slots
         self.SF_model = SF.SlotFiller(SF_MODEL_PATH, SF_MODEL_NAME, SF_MODEL_SUFFIX, cuda = True)
         self.RETR_model = RETR.RetrieveSlotsPredictorLSTM(RETR_MODEL_PATH, RETR_MODEL_NAME, cuda = False)
+        # Agent move
+        self.MOVE_RETR_model = MOVE_RETR.ToBeRetrievedPredictor(MOVE_RETR_MODEL_PATH, MOVE_RETR_MODEL_NAME)
+        self.MOVE_AGENT_ACTS_model = MOVE_AGENT_ACTS.AgentActsPredictor(MOVE_AGENT_ACTS_MODEL_PATH, MOVE_AGENT_ACTS_MODEL_NAME, cuda = False)
+        self.MOVE_AGENT_REQ_model = MOVE_AGENT_REQ.ToBeRequestedPredictor(MOVE_AGENT_REQ_MODEL_PATH, MOVE_AGENT_REQ_MODEL_NAME)
+        
         self.utterance_history = []
         self.acts_history = []
         self.intent_use_history = intent_use_history
@@ -70,7 +90,17 @@ class Agent():
         
         final_slots = processed_filled_slots + processed_retrieve_slots
         return final_slots
-            
+    
+    def predict_to_be_retrieved(self, slots_per_act_type):
+        return self.MOVE_RETR_model.predict(slots_per_act_type)
+    
+    def predict_agent_acts(self, user_slots_per_act_type, to_be_retrieved):
+        input_text = ', '.join(user_slots_per_act_type) + ' | ' + ', '.join(to_be_retrieved)
+        return self.MOVE_AGENT_ACTS_model.predict(input_text)
+    
+    def predict_to_be_requested(self, user_slots_per_act_type, to_be_retrieved_overall):
+        input_text = ', '.join(user_slots_per_act_type) + ' | ' + ', '.join(to_be_retrieved_overall)
+        return self.MOVE_AGENT_REQ_model.predict(input_text)
     
     def new_dialogue(self):
         self.utterance_history = []
@@ -79,3 +109,7 @@ class Agent():
     
     def respond(self, input):
         pass
+
+agent = Agent()
+pred = agent.predict_agent_acts({'Hotel-Inform': [('pricerange', 'expensive')]}, ['hotel-area:all over town', 'hotel-area:center of town', 'hotel-area:except in the north', 'hotel-availability:yes', 'hotel-name:the Gonville'])
+print(pred)
