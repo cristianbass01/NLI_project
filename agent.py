@@ -10,6 +10,8 @@ import agent_move.to_be_retrieved_predictor as MOVE_RETR
 import agent_move.agent_acts_predictor as MOVE_AGENT_ACTS
 import agent_move.to_be_requested_predictor as MOVE_AGENT_REQ
 
+from fake_database import FakeDatabase
+
 INT_MODEL_NAME = 'LSTM_BERT_HISTORY'
 INT_MODEL_PATH = 'intent/saved_models'
 
@@ -38,6 +40,7 @@ MOVE_AGENT_REQ_MODEL_PATH = 'agent_move/saved_models'
 
 class Agent():
     def __init__(self, intent_use_history = False, slot_use_history = False):
+        self.db = FakeDatabase()
         # Intent
         self.INT_model = INT.IntentPredictorLSTM(INT_MODEL_PATH, INT_MODEL_NAME, cuda = False)
         # Slots
@@ -48,8 +51,8 @@ class Agent():
         self.MOVE_AGENT_ACTS_model = MOVE_AGENT_ACTS.AgentActsPredictor(MOVE_AGENT_ACTS_MODEL_PATH, MOVE_AGENT_ACTS_MODEL_NAME, cuda = False)
         self.MOVE_AGENT_REQ_model = MOVE_AGENT_REQ.ToBeRequestedPredictor(MOVE_AGENT_REQ_MODEL_PATH, MOVE_AGENT_REQ_MODEL_NAME)
         
-        self.utterance_history = []
-        self.acts_history = []
+        self.utterance_history = ['', '']
+        self.acts_history = [[], []]
         self.intent_use_history = intent_use_history
         self.slot_use_history = slot_use_history
         self.prev_filled_slots = {}
@@ -71,8 +74,7 @@ class Agent():
     def predict_slots(self, utterance, given_utterance_history = None, given_acts_history = None, given_prev_filled_slots = None):
         utterance = self.get_input_utterance(utterance, given_utterance_history, given_acts_history, self.slot_use_history)
         prev_filled_slots = given_prev_filled_slots if given_prev_filled_slots is not None else self.prev_filled_slots
-        # TODO: do we have to use intent to predict slots better?
-        # self.predict_intent(utterance)
+
         filled_slots = self.SF_model.tag_slots(utterance)
         # Replace 'same' with previous value
         processed_filled_slots = []
@@ -102,14 +104,51 @@ class Agent():
         input_text = ', '.join(user_slots_per_act_type) + ' | ' + ', '.join(to_be_retrieved_overall)
         return self.MOVE_AGENT_REQ_model.predict(input_text)
     
+    def update_history(self, acts, utterance):
+        self.utterance_history = [self.utterance_history[-1], utterance]
+        self.acts_history = [self.acts_history[-1], acts]
+    
     def new_dialogue(self):
-        self.utterance_history = []
-        self.acts_history = []
+        self.utterance_history = ['', '']
+        self.acts_history = ['', '']
         self.prev_filled_slots = {}
+    
+    def get_slots_per_act_type(self, acts, slots):
+        slots_per_act_type = {}
+        for slot in slots:
+            matching_act_types = [act for act in acts if slot[0].split('-')[0] in act.lower()]
+            if len(matching_act_types) == 0:
+                matching_act_types = ['Restaurant-Inform'] if 'restaurant' in slot[0].split('-')[0] else ['Hotel-Inform']
+            matching_act_type = matching_act_types[0]
+            
+            if matching_act_type not in slots_per_act_type:
+                slots_per_act_type[matching_act_type] = [(slot[0].split('-')[1], slot[1])]
+            else:
+                slots_per_act_type[matching_act_type].append((slot[0].split('-')[1], slot[1]))
+        
+        return slots_per_act_type
+
+    def get_fake_retrieved(self, to_be_retrieved):
+        retrieved = {}
+        for slot in to_be_retrieved:
+            if 'availability' not in slot:
+                retrieved[slot] = self.db.retrieve(slot)
+        
+        domains = set()
+        for slot in to_be_retrieved:
+            domains.add(slot.split('-')[0])
+            
+        for domain in domains:
+            if len(to_be_retrieved) != 0 and any((slot_name_value.split(":")[0]!=domain+"-none" for slot_name_value in list(retrieved) + [''])):
+                retrieved[domain + '-availability'] = 'yes'
+            else:
+                retrieved[domain + '-availability'] = 'no'
+        
+        return retrieved
     
     def respond(self, input):
         pass
 
-agent = Agent()
-pred = agent.predict_agent_acts({'Hotel-Inform': [('pricerange', 'expensive')]}, ['hotel-area:all over town', 'hotel-area:center of town', 'hotel-area:except in the north', 'hotel-availability:yes', 'hotel-name:the Gonville'])
-print(pred)
+# agent = Agent()
+# pred = agent.predict_agent_acts({'Hotel-Inform': [('pricerange', 'expensive')]}, ['hotel-area:all over town', 'hotel-area:center of town', 'hotel-area:except in the north', 'hotel-availability:yes', 'hotel-name:the Gonville'])
+# print(pred)

@@ -101,7 +101,7 @@ class SlotFiller():
         if self.cuda:
             pred = pred.cpu()
         # tag name, value
-        tags = []
+        tags = {}
         in_tag = False
         last_pred_word = -1
         for i in range(pred.shape[0]):
@@ -125,7 +125,12 @@ class SlotFiller():
             if span_has_ended:
                 in_tag = False
                 span_end  = tokenized.token_to_chars(i - 1)[1]
-                tags.append((cur_type, utterance[span_start : span_end]))
+                # Trust the first tag found more
+                if cur_type not in tags:
+                    tags[cur_type] = utterance[span_start : span_end]
+        
+        # Convert to list of tuples
+        tags = [(tag, tags[tag]) for tag in tags]
         
         # Map tags
         tags = [(tag[0], map_slot_value(tag[1])) for tag in tags]
