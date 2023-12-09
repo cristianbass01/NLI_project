@@ -33,7 +33,7 @@ while True:
     print("\t" + Back.RED + "Agent intents:" + Back.RESET + " " + Fore.RED + ", ".join(agent_acts) + Fore.RESET)
     
     to_be_req = agent.predict_to_be_requested(user_input, slots_per_act_type, retrieved)
-    print("\t" + Back.RED + "To be requested:" + Back.RESET + " " + Fore.RED + ", ".join(agent_acts) + Fore.RESET)
+    print("\t" + Back.RED + "To be requested:" + Back.RESET + " " + Fore.RED + ", ".join(to_be_req) + Fore.RESET)
     print('\n')
     
     agent.update_history(intent, user_input)
