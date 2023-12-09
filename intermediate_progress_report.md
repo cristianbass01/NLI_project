@@ -19,10 +19,10 @@ Giuseppe Cianci     - u234127
     - TF-IDF + Spacy embeddings:
       Accuracy: 64.4%, Precision: 69.5%, Recall: 53.4%, F1: 59.2%
 - **SVM:** Support Vector Machine with rbf kernel using fasttext embeddings and lemmatization
-    - TF-IDF + fastText embeddings + top-k feature selection based on ANOVA score:
+    - TF-IDF + fastText embeddings + top-300 feature selection based on ANOVA score:
       Accuracy: 76.9%, Precision: 69.4%, Recall: 64.1%, F1: 66.5%
 - **MLP:** Multi Layer Perceptron with BatchNorm and Dropout (and unifying non-hotel or restaurant intents into 'other' class):
-    - TF-IDF + fastText embeddings + top-k feature selection based on ANOVA score:
+    - TF-IDF + fastText embeddings + top-300 feature selection based on ANOVA score:
       Accuracy: 79.1%, Precision: 91.2%, Recall: 72.4%, F1: 79.5%
 - **LSTM** Stacked bidirectional Long Short-Term Memory architecture with Effective Number of Samples class loss weighting to combat class imbalance (and unifying non-hotel or restaurant intents into 'other' class):
     - fastText embeddings:
