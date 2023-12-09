@@ -96,12 +96,16 @@ class Agent():
     def predict_to_be_retrieved(self, slots_per_act_type):
         return self.MOVE_RETR_model.predict(slots_per_act_type)
     
-    def predict_agent_acts(self, user_slots_per_act_type, to_be_retrieved):
-        input_text = ', '.join(user_slots_per_act_type) + ' | ' + ', '.join(to_be_retrieved)
+    def predict_agent_acts(self, user_utterance, user_slots_per_act_type, to_be_retrieved_overall):
+        user_slots_per_act_type = [act_type.lower() + '-' + slot[0] + ':' + slot[1]  for act_type in user_slots_per_act_type for slot in user_slots_per_act_type[act_type]]
+        to_be_retrieved_overall = [slot + ':' + to_be_retrieved_overall[slot] for slot in to_be_retrieved_overall]
+        input_text = user_utterance + ' | USER SLOTS PER ACT ' + ', '.join(user_slots_per_act_type) + ' | RETRIEVED SLOTS ' + ', '.join(to_be_retrieved_overall)
         return self.MOVE_AGENT_ACTS_model.predict(input_text)
     
-    def predict_to_be_requested(self, user_slots_per_act_type, to_be_retrieved_overall):
-        input_text = ', '.join(user_slots_per_act_type) + ' | ' + ', '.join(to_be_retrieved_overall)
+    def predict_to_be_requested(self, user_utterance, user_slots_per_act_type, to_be_retrieved_overall):
+        user_slots_per_act_type = [act_type.lower() + '-' + slot[0] + ':' + slot[1]  for act_type in user_slots_per_act_type for slot in user_slots_per_act_type[act_type]]
+        to_be_retrieved_overall = [slot + ':' + to_be_retrieved_overall[slot] for slot in to_be_retrieved_overall]
+        input_text = user_utterance + ' | USER SLOTS PER ACT ' + ', '.join(user_slots_per_act_type) + ' | RETRIEVED SLOTS ' + ', '.join(to_be_retrieved_overall)
         return self.MOVE_AGENT_REQ_model.predict(input_text)
     
     def update_history(self, acts, utterance):

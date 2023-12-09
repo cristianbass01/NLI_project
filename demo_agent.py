@@ -29,10 +29,10 @@ while True:
     
     retrieved = agent.get_fake_retrieved(to_be_retrieved)
     
-    agent_acts = agent.predict_agent_acts(slots_per_act_type, retrieved)
+    agent_acts = agent.predict_agent_acts(user_input, slots_per_act_type, retrieved)
     print("\t" + Back.RED + "Agent intents:" + Back.RESET + " " + Fore.RED + ", ".join(agent_acts) + Fore.RESET)
     
-    to_be_req = agent.predict_to_be_requested(slots_per_act_type, retrieved)
+    to_be_req = agent.predict_to_be_requested(user_input, slots_per_act_type, retrieved)
     print("\t" + Back.RED + "To be requested:" + Back.RESET + " " + Fore.RED + ", ".join(agent_acts) + Fore.RESET)
     print('\n')
     
