@@ -13,6 +13,7 @@ class FakeDatabase():
             
             'restaurant-area': ['center', 'east', 'north', 'south', 'west'],
             'restaurant-food': ['chinese', 'english', 'french', 'indian', 'italian', 'japanese'],
+            'restaurant-phone': ['+1-123-456-7890', '+1-098-765-4321', 'restaurant-none'],
             'restaurant-name': ['Django\'s', 'Jin\'s', 'Sausalitos', 'retaurant-none'],
             'restaurant-pricerange': ['cheap', 'expensive', 'moderate'],
         }

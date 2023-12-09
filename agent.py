@@ -1,35 +1,35 @@
 import sys
-sys.path.append('intent')
-sys.path.append('slots')
-sys.path.append('agent_move')
+sys.path.append('1_intent')
+sys.path.append('2_slots')
+sys.path.append('3_agent_move')
 
-import intent.intent_predictor as INT
-import slots.slot_filler as SF
-import slots.retrieve_slots_predictor as RETR
-import agent_move.to_be_retrieved_predictor as MOVE_RETR
-import agent_move.agent_acts_predictor as MOVE_AGENT_ACTS
-import agent_move.to_be_requested_predictor as MOVE_AGENT_REQ
+import intent_predictor as INT
+import slot_filler as SF
+import retrieve_slots_predictor as RETR
+import to_be_retrieved_predictor as MOVE_RETR
+import agent_acts_predictor as MOVE_AGENT_ACTS
+import to_be_requested_predictor as MOVE_AGENT_REQ
 
 from fake_database import FakeDatabase
 
 INT_MODEL_NAME = 'LSTM_BERT_HISTORY'
-INT_MODEL_PATH = 'intent/saved_models'
+INT_MODEL_PATH = '1_intent/saved_models'
 
 SF_MODEL_NAME = 'roberta-base'
 SF_MODEL_SUFFIX = 'with_intent'
-SF_MODEL_PATH = 'slots/saved_models'
+SF_MODEL_PATH = '2_slots/saved_models'
 
 RETR_MODEL_NAME = 'LSTM_BERT_HISTORY'
-RETR_MODEL_PATH = 'slots/saved_models'
+RETR_MODEL_PATH = '2_slots/saved_models'
 
 MOVE_RETR_MODEL_NAME = 'SVC'
-MOVE_RETR_MODEL_PATH = 'agent_move/saved_models'
+MOVE_RETR_MODEL_PATH = '3_agent_move/saved_models'
 
 MOVE_AGENT_ACTS_MODEL_NAME = 'LSTM'
-MOVE_AGENT_ACTS_MODEL_PATH = 'agent_move/saved_models'
+MOVE_AGENT_ACTS_MODEL_PATH = '3_agent_move/saved_models'
 
 MOVE_AGENT_REQ_MODEL_NAME = 'LSTM'
-MOVE_AGENT_REQ_MODEL_PATH = 'agent_move/saved_models'
+MOVE_AGENT_REQ_MODEL_PATH = '3_agent_move/saved_models'
 
 # INT_model = INT.IntentPredictorLSTM(INT_MODEL_PATH, INT_MODEL_NAME, cuda = False)
 # print(INT_model.predict('I want to book a hotel and also want a table for 2 at a restaurant in the city center for 2 people'))
@@ -121,6 +121,13 @@ class Agent():
         slots_per_act_type = {}
         for slot in slots:
             matching_act_types = [act for act in acts if slot[0].split('-')[0] in act.lower()]
+            matching_act_types = []
+            for act in acts:
+                domain = slot[0].split('-')[0]
+                if domain in act.lower():
+                    if (slot[1] == '?' and 'request' in act.lower()) or (slot[1] != '?' and 'inform' in act.lower()):
+                        matching_act_types.append(act)
+                
             if len(matching_act_types) == 0:
                 matching_act_types = ['Restaurant-Inform'] if 'restaurant' in slot[0].split('-')[0] else ['Hotel-Inform']
             matching_act_type = matching_act_types[0]
