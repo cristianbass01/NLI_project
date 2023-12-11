@@ -1,0 +1,26 @@
+Task 1
+
+Using roberta and roberta-base. using spacy in the preprocess + history
+LEARNING_RATE = 1e-5
+BATCH_SIZE = 32
+EPOCHS = 10
+WEIGHT_DECAY = 0.01
+
+Accuracy: 0.9675800325556159
+Precision: 0.9672975802020586
+Recall: 0.9675800325556159
+F1: 0.9657528662192935
+                    precision    recall  f1-score   support
+
+     general-thank       0.99      1.00      0.99       940
+Restaurant-Request       0.98      0.66      0.79       286
+     Hotel-Request       0.97      0.80      0.88       285
+     general-greet       0.00      0.00      0.00         6
+      Hotel-Inform       0.96      0.98      0.97      1232
+       general-bye       1.00      1.00      1.00       293
+ Restaurant-Inform       0.93      0.97      0.95      1214
+             other       0.98      0.99      0.99      3116
+
+          accuracy                           0.97      7372
+         macro avg       0.85      0.80      0.82      7372
+      weighted avg       0.97      0.97      0.97      7372

@@ -165,7 +165,5 @@ dataset.hf/
 saved_models/
 nohup.out
 
-cristian/
-
 cc.en.300.bin
 word2vec.model

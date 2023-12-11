@@ -136,4 +136,3 @@ class SlotFiller():
         tags = [(tag[0], map_slot_value(tag[1])) for tag in tags]
         
         return tags
-    
