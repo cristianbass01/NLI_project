@@ -35,3 +35,5 @@ MLP
 
 early stopping + using 'other' as label
 acc = 0.7911195577055978, precision = 0.9126654330602231, recall = 0.7242554307053071, f_score = 0.7954422645318626
+
+
