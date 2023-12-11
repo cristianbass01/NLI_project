@@ -163,6 +163,7 @@ cython_debug/
 fasttext/
 dataset.hf/
 saved_models/
+model/
 nohup.out
 
 cc.en.300.bin
