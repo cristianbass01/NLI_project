@@ -8,6 +8,8 @@ class FakeDatabase():
             'hotel-type': ['hotel', 'guesthouse'],
             'hotel-phone': ['+1-123-456-7890', '+1-098-765-4321', 'hotel-none'],
             'hotel-pricerange': ['cheap', 'expensive', 'moderate'],
+            'hotel-area': ['center', 'east', 'north', 'south', 'west'],
+            'hotel-postcode': ['CB11PT', 'CB30FA', 'hotel-none'],
             'hotel-stars': ['3', '4', '5'],
             'hotel-name': ['Grand Hotel', 'Hilton', 'Holiday Inn', 'hotel-none'],
             'hotel-ref': ['B0007I1JYQ', 'B0007I1JYR', 'B0007I1JYS'],
