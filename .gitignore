@@ -164,6 +164,7 @@ fasttext/
 dataset.hf/
 saved_models/
 model/
+models/
 nohup.out
 
 cc.en.300.bin
