@@ -1,0 +1,35 @@
+
+\begin{table}[H] % need to have \usepackage{float} \restylefloat{table} in the preamble
+
+\centering
+
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Class}& \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Support} \\ \hline
+Hotel-Inform & 0.910 & 0.947 & 0.928 & 1328 \\ \hline
+Hotel-Request & 0.809 & 0.771 & 0.789 & 292 \\ \hline
+Restaurant-Inform & 0.930 & 0.919 & 0.924 & 1322 \\ \hline
+Restaurant-Request & 0.809 & 0.815 & 0.812 & 286 \\ \hline
+general-bye & 0.991 & 0.991 & 0.991 & 225 \\ \hline
+general-greet & 0.800 & 0.667 & 0.727 & 6 \\ \hline
+general-thank & 0.937 & 0.986 & 0.961 & 693 \\ \hline
+other & 0.989 & 0.854 & 0.917 & 2039 \\ \hline\hline
+micro avg & 0.934 & 0.902 & 0.918 & 6191 \\ \hline
+macro avg & 0.897 & 0.869 & 0.881 & 6191 \\ \hline
+weighted avg & 0.937 & 0.902 & 0.917 & 6191 \\ \hline
+samples avg & 0.929 & 0.920 & 0.919 & 6191 \\ \hline
+\multicolumn{5}{c}{}\\ \hline
+
+\textbf{Accuracy}                      & \multicolumn{4}{c|}{0.875}                                 \\ \hline
+\textbf{Overall Precision (micro avg)} & \multicolumn{4}{c|}{0.934}                                \\ \hline
+\textbf{Overall Recall (micro avg)}    & \multicolumn{4}{c|}{0.902}                                   \\ \hline
+\textbf{Overall F1-Score (micro avg)}  & \multicolumn{4}{c|}{0.918}                                  \\ \hline
+\textbf{Label Ranking Avg Precision}   & \multicolumn{4}{c|}{0.966}                                    \\ \hline
+\textbf{Coverage Error}                & \multicolumn{4}{c|}{1.164 (worst: 8.000, best: 1.070)}                             \\ \hline
+\textbf{Ranking Loss}                  & \multicolumn{4}{c|}{0.013 (worst: 7.339, best: 0.000)}                             \\ \hline
+\end{tabular}
+
+\caption{Metrics Overview of LSTM (768 features, with history) Model for Task 1}
+\label{table:LSTM (768 features, with history)_metrics_task_1}
+\end{table}
+    
