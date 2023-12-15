@@ -58,7 +58,8 @@ def generate_metrics_latex_table(model_name, task_number, true_labels, binary_pr
 
     # Final LaTeX output with caption and label
     final_latex_output = f"""
-\\begin{{table}}[h]
+\\begin{{table}}[H] % need to have \\usepackage{{float}} \\restylefloat{{table}} in the preamble
+
 \\centering
 {overall_metrics}
 \\caption{{Metrics Overview of {model_name} Model for Task {task_number}}}
