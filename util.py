@@ -46,13 +46,13 @@ def generate_metrics_latex_table(model_name, task_number, true_labels, binary_pr
     # Adding overall metrics
     overall_metrics = f"""
 {latex_table}
-\\textbf{{Accuracy}}                    & \\multicolumn{{4}}{{c|}}{{{accuracy:.3f}}}                                 \\\\ \\hline
-\\textbf{{Overall Precision}}           & \\multicolumn{{4}}{{c|}}{{{precision:.3f}}}                                \\\\ \\hline
-\\textbf{{Overall Recall}}              & \\multicolumn{{4}}{{c|}}{{{recall:.3f}}}                                   \\\\ \\hline
-\\textbf{{Overall F1-Score}}            & \\multicolumn{{4}}{{c|}}{{{f_score:.3f}}}                                  \\\\ \\hline
-\\textbf{{Label Ranking Avg Precision}} & \\multicolumn{{4}}{{c|}}{{{lrap:.3f}}}                                    \\\\ \\hline
-\\textbf{{Coverage Error}}              & \\multicolumn{{4}}{{c|}}{{{coverage_err:.3f} (worst: {worst_coverage:.3f}, best: {best_coverage:.3f})}}                             \\\\ \\hline
-\\textbf{{Ranking Loss}}                & \\multicolumn{{4}}{{c|}}{{{ranking_loss:.3f} (worst: {worst_rl:.3f}, best: {best_rl:.3f})}}                             \\\\ \\hline
+\\textbf{{Accuracy}}                      & \\multicolumn{{4}}{{c|}}{{{accuracy:.3f}}}                                 \\\\ \\hline
+\\textbf{{Overall Precision (micro avg)}} & \\multicolumn{{4}}{{c|}}{{{precision:.3f}}}                                \\\\ \\hline
+\\textbf{{Overall Recall (micro avg)}}    & \\multicolumn{{4}}{{c|}}{{{recall:.3f}}}                                   \\\\ \\hline
+\\textbf{{Overall F1-Score (micro avg)}}  & \\multicolumn{{4}}{{c|}}{{{f_score:.3f}}}                                  \\\\ \\hline
+\\textbf{{Label Ranking Avg Precision}}   & \\multicolumn{{4}}{{c|}}{{{lrap:.3f}}}                                    \\\\ \\hline
+\\textbf{{Coverage Error}}                & \\multicolumn{{4}}{{c|}}{{{coverage_err:.3f} (worst: {worst_coverage:.3f}, best: {best_coverage:.3f})}}                             \\\\ \\hline
+\\textbf{{Ranking Loss}}                  & \\multicolumn{{4}}{{c|}}{{{ranking_loss:.3f} (worst: {worst_rl:.3f}, best: {best_rl:.3f})}}                             \\\\ \\hline
 \\end{{tabular}}
 """
 
