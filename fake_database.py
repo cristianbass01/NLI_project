@@ -5,6 +5,7 @@ class FakeDatabase():
         self.to_be_retrieved = {
             'hotel-internet': ['yes', 'no'],
             'hotel-parking': ['yes', 'no'],
+            'hotel-type': ['hotel', 'guesthouse'],
             'hotel-phone': ['+1-123-456-7890', '+1-098-765-4321', 'hotel-none'],
             'hotel-pricerange': ['cheap', 'expensive', 'moderate'],
             'hotel-stars': ['3', '4', '5'],

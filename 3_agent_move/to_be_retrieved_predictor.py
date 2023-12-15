@@ -1,6 +1,7 @@
 import os
 import pickle
-
+from LSTM import MyLSTM as LSTM
+from dict_model import DictModel
 
 LSTM_MODEL_PATH = 'saved_models'
 LSTM_MODEL_NAME = 'LSTM_BERT_HISTORY'

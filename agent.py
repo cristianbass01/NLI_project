@@ -22,7 +22,7 @@ SF_MODEL_PATH = '2_slots/saved_models'
 RETR_MODEL_NAME = 'LSTM_BERT_HISTORY'
 RETR_MODEL_PATH = '2_slots/saved_models'
 
-MOVE_RETR_MODEL_NAME = 'SVC'
+MOVE_RETR_MODEL_NAME = 'DICT'
 MOVE_RETR_MODEL_PATH = '3_agent_move/saved_models'
 
 MOVE_AGENT_ACTS_MODEL_NAME = 'LSTM'
