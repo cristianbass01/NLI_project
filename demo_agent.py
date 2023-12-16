@@ -3,13 +3,17 @@ from argparse import ArgumentParser
 
 parser = ArgumentParser()
 parser.add_argument('dialogue_file')
+parser.add_argument('--debug', action = 'store_true')
 
 args = parser.parse_args()
 
 dialogue_file = args.dialogue_file
+debug = args.debug
 
+user_inputs = [utterance[len('USR: ') :] for utterance in open(dialogue_file, 'r').read().split('\n') if utterance.startswith('USR: ')]
 bot_responses = [utterance[len('BOT: ') :] for utterance in open(dialogue_file, 'r').read().split('\n') if utterance.startswith('BOT: ')]
 cur_response = 0
+cur_input = 0
 
 print("Importing agent...")
 from agent import Agent
@@ -18,9 +22,12 @@ agent = Agent(intent_use_history = True, slot_use_history = True)
 print("Agent loaded!\n")
 
 while True:
-    user_input = input("User's input: ")
-    if 'bye' in user_input.lower():
-        break
+    if not debug:
+        user_input = input("User's input: ")
+    else:
+        user_input = user_inputs[cur_input]
+        print("User's input: ", user_input)
+        cur_input += 1
     
     intent = agent.predict_intent(user_input)
     print(Back.RED + "User intents:" + Back.RESET + " " + Fore.RED + ", ".join(intent) + Fore.RESET)
@@ -54,6 +61,9 @@ while True:
     cur_response += 1
     print("Agent's response:", bot_response)
     agent.update_history(agent_acts, bot_response)
+    
+    if cur_response == len(bot_responses):
+        break
     
 
 print("Exiting...")

@@ -18,8 +18,7 @@ class ToBeRetrievedPredictor:
         for act_type in slots_per_act_type:
             domain = act_type.split("-")[0].lower()
             slots = slots_per_act_type[act_type]
-            
-            if len(slots) != 0:
+            if len(slots) != 0 and domain + '-availability' not in to_be_retrieved:
                 to_be_retrieved.append(domain + '-availability')
             
             for slot in slots:
