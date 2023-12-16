@@ -1,4 +1,15 @@
 from colorama import Fore, Back
+from argparse import ArgumentParser
+
+parser = ArgumentParser()
+parser.add_argument('dialogue_file')
+
+args = parser.parse_args()
+
+dialogue_file = args.dialogue_file
+
+bot_responses = [utterance[len('BOT: ') :] for utterance in open(dialogue_file, 'r').read().split('\n') if utterance.startswith('BOT: ')]
+cur_response = 0
 
 print("Importing agent...")
 from agent import Agent
@@ -39,7 +50,8 @@ while True:
     agent.update_history(intent, user_input)
     
     #TODO: Get scripted bot response according to some set dialogue structure (e.g. a list of responses)
-    bot_response = "Hello, I am a fake bot response and I am in dire need of implementation!"
+    bot_response = bot_responses[cur_response]
+    cur_response += 1
     print("Agent's response:", bot_response)
     agent.update_history(agent_acts, bot_response)
     

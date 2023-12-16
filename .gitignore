@@ -165,6 +165,7 @@ dataset.hf/
 saved_models/
 model/
 models/
+dialogues/
 nohup.out
 
 cc.en.300.bin
