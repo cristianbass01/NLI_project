@@ -1,44 +1,24 @@
 from transformers import RobertaForSequenceClassification, RobertaTokenizer, RobertaConfig
 from sklearn.preprocessing import MultiLabelBinarizer
 import numpy as np
-import spacy
 import torch
 import os
+from util import ModelDictionary, models_base_directory, device, spacy_nlp
 
-_directory_path = os.path.dirname(os.path.abspath(__file__))
-_models_directory = os.path.join(_directory_path, 'models', '1_predict_domain_and_dialog_act')
-device = torch.device('cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu')
+_models_directory = os.path.join(models_base_directory, '1_predict_domain_and_dialog_act')
 
-class ModelDictionary:
-    def __init__(self):
-        self.models = {}
-
-    def __getitem__(self, key):
-        if key in self.models:
-            return self.models[key]
-        else:
-            self._load_model(key)
-            return self.models[key]
-
-    def _load_model(self, model_id):
-        if model_id == 'roberta':
-            self.models[model_id] = RoBERTa()
-            return
-        raise f'Tried to load unknown model with id "{model_id}"'
-
-_models = ModelDictionary()
+_models = ModelDictionary({'roberta' : lambda: RoBERTaPredictDialogAct()})
 
 def predict_domain_and_dialog_act(message, historical_messages, historical_predictions, model_id):
     model = _models[model_id]
     return model.predict(message, historical_messages, historical_predictions)
 
 
-_nlp = spacy.load("en_core_web_lg")
 
-class RoBERTa(torch.nn.Module):
+class RoBERTaPredictDialogAct(torch.nn.Module):
     def __init__(self):
         super().__init__()
-        model_file = torch.load(os.path.join(_models_directory, 'roberta.pt'))
+        model_file = torch.load(os.path.join(_models_directory, 'roberta', 'model.pt'))
         self.mlb = MultiLabelBinarizer(classes=model_file['mlb']['classes'], sparse_output=model_file['mlb'].get('sparse_output', False))
         self.mlb.fit([model_file['mlb']['classes']])
         self.num_labels = len(self.mlb.classes)
@@ -65,7 +45,7 @@ class RoBERTa(torch.nn.Module):
 
     def parse(self, sentence):
         # Tokenize
-        sentence = _nlp(sentence)
+        sentence = spacy_nlp(sentence)
         # Remove stop words
         sentence = " ".join([token.lemma_ for token in sentence])
         
@@ -93,8 +73,8 @@ class RoBERTa(torch.nn.Module):
 
         outputs = self(input_ids, attention_mask, token_type_ids)
 
-        outputs = torch.sigmoid(outputs).cpu().detach().numpy()
-        threshold = 0.5
+        outputs = outputs.cpu().detach().numpy()
+        threshold = 0
         outputs = [[prob > threshold for prob in prob_list] for prob_list in outputs ]
         
         outputs = self.mlb.inverse_transform(np.array(outputs))
