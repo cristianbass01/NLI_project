@@ -4,6 +4,7 @@ import numpy as np
 import spacy
 import torch
 import os
+from collections import defaultdict
 from util import ModelDictionary, models_base_directory, device, spacy_nlp
 
 _models_directory = os.path.join(models_base_directory, '2_slot_filling')
@@ -21,21 +22,25 @@ class RoBERTaSemanticFrameSlotFilling():
         self.question_labeling_model = RoBERTaQuestionLabeling()
 
     def predict(self, message, historical_messages, historical_domain_and_dialog_acts, historical_slot_values, historical_slot_questions):
-        # Prepare the history
-        # TODO continue here ...
-        input = ''
-        for message, domain_and_dialog_act, slot_values, slot_questions in zip(historical_messages, historical_domain_and_dialog_acts, historical_slot_values, historical_slot_questions):
-            input += message + ' | ' + domain_and_dialog_act + ' | ' + slot_values + ' | ' + slot_questions + ' | '
-        input += message
-
         # Call the slot filling model
-        words, slot_values = self.slot_filling_model.predict(input)
+        words, bio_tags = self.slot_filling_model.predict(message)
 
-        # TODO need to add historical predictions (slots, dialog acts) etc separated by | from the words
-        input_sentence = " ".join(words)
-        sentence, slot_questions = self.question_labeling_model.predict(input_sentence)
+        slot_values = self.convert_bio_tags(words, bio_tags)
+        
+        sentence, slot_questions = self.question_labeling_model.predict(message)
 
         return slot_values, slot_questions
+    
+    def convert_bio_tags(self, words, bio_tags):
+        slot_dict = defaultdict(list)
+
+        for word, bio_tag in zip(words, bio_tags):
+            if bio_tag.startswith('B-') or bio_tag.startswith('I-'):
+                key = bio_tag[2:]
+                slot_dict[key].append(word)
+        
+        return {key: " ".join(value) for key, value in slot_dict.items()}
+
     
 
 class RoBERTaSlotFilling():
@@ -158,4 +163,5 @@ class RoBERTaQuestionLabeling(torch.nn.Module):
         outputs = [[prob > threshold for prob in prob_list] for prob_list in outputs ]
         
         outputs = self.mlb.inverse_transform(np.array(outputs))
+        outputs = [output for output_tuple in outputs for output in output_tuple]
         return sentence, outputs

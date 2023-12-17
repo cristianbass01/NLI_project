@@ -3,6 +3,7 @@ from flask_restful import Resource, Api, reqparse
 from collections import defaultdict
 from task_1 import predict_domain_and_dialog_act
 from task_2 import predict_semantic_frame_slot_filling
+from full_pipeline import process_user_utterance
 
 app = Flask(__name__)
 api = Api(app)
@@ -12,6 +13,23 @@ message_histories = defaultdict(list)
 domain_and_dialog_acts_histories = defaultdict(list)
 slot_values_histories = defaultdict(list)
 slot_questions_histories = defaultdict(list)
+
+
+# Full Pipeline
+class FullPipeline(Resource):
+    def __init__(self):
+        parser = reqparse.RequestParser(bundle_errors=True)
+        parser.add_argument('message', required=True, help="message cannot be blank")
+        self.parser = parser
+
+    def post(self):
+        args = self.parser.parse_args()
+        message = args['message']
+        return process_user_utterance(message)
+
+
+
+
 
 # Task 1
 class PredictDomainAndDialogAct(Resource):
@@ -80,6 +98,7 @@ class PredictSemanticFrameSlotFilling(Resource):
 # Add the resources to the API
 api.add_resource(PredictDomainAndDialogAct, '/task-1/predict-domain-and-dialog-act')
 api.add_resource(PredictSemanticFrameSlotFilling, '/task-2/predict-semantic-frame-slot-filling')
+api.add_resource(FullPipeline, '/full-pipeline')
 
 if __name__ == '__main__':
     app.run(debug=True)
