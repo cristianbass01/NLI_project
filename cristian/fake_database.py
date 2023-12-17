@@ -5,7 +5,7 @@ class FakeDatabase():
     def retrieve(self, key):
         return random.choice(self.to_be_retrieved[key])
     
-    def retrieve_agent_response(self, agent_dialogue_act, to_be_provided, to_be_requested):
+    def retrieve_agent_response(self, agent_dialogue_act, to_be_requested, to_be_provided):
         sentence = random.choice(self.templates['greeting']) + ' '
         for slot in to_be_provided.keys():
             value = to_be_provided[slot]
@@ -172,7 +172,7 @@ class FakeDatabase():
             "The place is accepting reservations on {bookday}."
         ]
 
-        self.templates['to_be_provided']['availability:yes'] = [
+        self.templates['to_be_provided']['availability'] = [
             "The place is available.",
             "Yes, the place is available. We can proceed with the reservation.",
             "The requested place is available for your reservation.",

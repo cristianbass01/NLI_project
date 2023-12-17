@@ -14,7 +14,7 @@ logging.set_verbosity_error()
 import spacy
 nlp = spacy.load("en_core_web_lg")
 
-SAVED_MODELS_DIR = "./saved_models/"
+SAVED_MODELS_DIR = "./old_saved_models/"
 DIALOGUE_ACT_MODEL_PATH = SAVED_MODELS_DIR + "1_model_dialog_act.pt"
 SLOT_FILLING_MODEL_PATH = SAVED_MODELS_DIR + "2_model_slot_filling.pt"
 QUESTION_TAGS_MODEL_PATH = SAVED_MODELS_DIR + "2_2_model_question_tags_no_none.pt"
@@ -126,6 +126,8 @@ class Agent:
         self.history[self.index]['to_be_retrieved'] = [item for tup in prediction for item in tup]
         if prediction != ['none']:
             self.history[self.index]['to_be_provided'] = self.get_fake_retrieved(self.history[self.index]['to_be_retrieved'])
+        else:
+            self.history[self.index]['to_be_provided'] = {}
         return self.history[self.index]['to_be_retrieved']
 
     def predict_agent_dialogue_act(self):
@@ -152,6 +154,7 @@ class Agent:
     def get_agent_response(self):
         to_be_retrieved = self.history[self.index]['to_be_retrieved']
         to_be_provided = self.history[self.index]['to_be_provided']
+        print(to_be_provided)
         agent_dialogue_act = self.history[self.index]['agent_dialogue_act']
         response = self.database.retrieve_agent_response(agent_dialogue_act, to_be_retrieved, to_be_provided)
         self.history[self.index]['agent_utterance'] = parse(response)
@@ -640,5 +643,9 @@ print()
 print('Predicting to be requested...')
 print('Historical to be requested utterance:', agent.get_to_be_requested_historical_utterance())
 print('Predicted to be requested:', agent.predict_to_be_requested())
+print('History:', agent.history)
+print()
+print('Getting agent response...')
+print('Agent response:', agent.get_agent_response())
 print('History:', agent.history)
 print()
