@@ -1,14 +1,37 @@
 from colorama import Fore, Back
 from argparse import ArgumentParser
+import os
+import sys
+import termios
+import time
+
+def set_echo(enable):
+    fd = sys.stdin.fileno()
+    new = termios.tcgetattr(fd)
+    if enable:
+        new[3] |= termios.ECHO
+    else:
+        new[3] &= ~termios.ECHO
+
+    termios.tcsetattr(fd, termios.TCSANOW, new)
 
 parser = ArgumentParser()
 parser.add_argument('dialogue_file')
 parser.add_argument('--debug', action = 'store_true')
+parser.add_argument('--stdin', action='store_true')
 
 args = parser.parse_args()
 
 dialogue_file = args.dialogue_file
 debug = args.debug
+use_stdin = args.stdin
+
+if not os.path.exists(dialogue_file):
+    print("Dialogue file not found!")
+    exit(1)
+
+if not use_stdin:
+    set_echo(False)
 
 user_inputs = [utterance[len('USR: ') :] for utterance in open(dialogue_file, 'r').read().split('\n') if utterance.startswith('USR: ')]
 bot_responses = [utterance[len('BOT: ') :] for utterance in open(dialogue_file, 'r').read().split('\n') if utterance.startswith('BOT: ')]
@@ -22,12 +45,21 @@ agent = Agent(intent_use_history = True, slot_use_history = True)
 print("Agent loaded!\n")
 
 while True:
-    if not debug:
+    if use_stdin:
         user_input = input("User's input: ")
     else:
         user_input = user_inputs[cur_input]
-        print("User's input: ", user_input)
-        cur_input += 1
+        if debug:
+            print("User's input: ", user_input)
+        else:
+            print("User's input: ", end = "", flush = True)
+            for char in user_input:
+                
+                os.system("/bin/bash -c 'read -s -n 1'")
+                print(char, end = '', flush = True)
+            
+            print()
+            cur_input += 1
     
     intent = agent.predict_intent(user_input)
     print(Back.RED + "User intents:" + Back.RESET + " " + Fore.RED + ", ".join(intent) + Fore.RESET)
@@ -62,8 +94,12 @@ while True:
     print("Agent's response:", bot_response)
     agent.update_history(agent_acts, bot_response)
     
+    
+    time.sleep(0.3)
+    termios.tcflush(sys.stdin, termios.TCIFLUSH)
     if cur_response == len(bot_responses):
         break
-    
+
+set_echo(True)
 
 print("Exiting...")
