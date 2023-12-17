@@ -1,0 +1,2 @@
+USR: I want the most expensive hotel and restaurant you have
+BOT: Hello, I am a generic bot response!
