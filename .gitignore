@@ -169,3 +169,6 @@ nohup.out
 
 cc.en.300.bin
 word2vec.model
+
+cosine_similarity/
+old_saved_models/
