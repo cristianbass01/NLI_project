@@ -9,9 +9,10 @@ _models_directory = os.path.join(models_base_directory, '1_predict_domain_and_di
 
 _models = ModelDictionary({'roberta' : lambda: RoBERTaPredictDialogAct()})
 
-def predict_domain_and_dialog_act(message, historical_messages, historical_predictions, model_id):
+def predict_domain_and_dialog_act(message, historical_messages, historical_domain_and_dialog_acts, model_id):
     model = _models[model_id]
-    return model.predict(message, historical_messages, historical_predictions)
+    parsed_sentence, prediction = model.predict(message, historical_messages, historical_domain_and_dialog_acts)
+    return parsed_sentence, prediction
 
 
 

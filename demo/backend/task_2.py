@@ -10,27 +10,32 @@ _models_directory = os.path.join(models_base_directory, '2_slot_filling')
 
 _models = ModelDictionary({'roberta' : lambda: RoBERTaSemanticFrameSlotFilling()})
 
-def predict_semantic_frame_slot_filling(message, historical_messages, historical_predictions, model_id):
+def predict_semantic_frame_slot_filling(message, historical_messages, historical_domain_and_dialog_acts, historical_slot_values, historical_slot_questions, model_id):
     model = _models[model_id]
-    return model.predict(message, historical_messages, historical_predictions)
+    return model.predict(message, historical_messages, historical_domain_and_dialog_acts, historical_slot_values, historical_slot_questions)
 
-
-_nlp = spacy.load("en_core_web_lg")
 
 class RoBERTaSemanticFrameSlotFilling():
     def __init__(self):
         self.slot_filling_model = RoBERTaSlotFilling()
         self.question_labeling_model = RoBERTaQuestionLabeling()
 
-    def predict(self, message, historical_messages, historical_predictions):
+    def predict(self, message, historical_messages, historical_domain_and_dialog_acts, historical_slot_values, historical_slot_questions):
+        # Prepare the history
+        # TODO continue here ...
+        input = ''
+        for message, domain_and_dialog_act, slot_values, slot_questions in zip(historical_messages, historical_domain_and_dialog_acts, historical_slot_values, historical_slot_questions):
+            input += message + ' | ' + domain_and_dialog_act + ' | ' + slot_values + ' | ' + slot_questions + ' | '
+        input += message
+
         # Call the slot filling model
-        words, slot_predictions = self.slot_filling_model.predict(message)
+        words, slot_values = self.slot_filling_model.predict(input)
 
-        # Feed the output of the slot filling model into the question labeling model
+        # TODO need to add historical predictions (slots, dialog acts) etc separated by | from the words
         input_sentence = " ".join(words)
-        question_labeling_predictions = self.question_labeling_model.predict(input_sentence)
+        sentence, slot_questions = self.question_labeling_model.predict(input_sentence)
 
-        return slot_predictions, question_labeling_predictions
+        return slot_values, slot_questions
     
 
 class RoBERTaSlotFilling():

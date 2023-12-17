@@ -8,9 +8,10 @@ app = Flask(__name__)
 api = Api(app)
 
 # Store the historical messages and predictions for each conversation
-prediction_histories = defaultdict(list)
 message_histories = defaultdict(list)
-
+domain_and_dialog_acts_histories = defaultdict(list)
+slot_values_histories = defaultdict(list)
+slot_questions_histories = defaultdict(list)
 
 # Task 1
 class PredictDomainAndDialogAct(Resource):
@@ -28,12 +29,19 @@ class PredictDomainAndDialogAct(Resource):
         model_id = args['model-id']
 
         historical_messages = message_histories[conversation_id]
-        historical_predictions = prediction_histories[conversation_id]
+        historical_domain_and_dialog_acts = domain_and_dialog_acts_histories[conversation_id]
 
-        prediction = predict_domain_and_dialog_act(message, historical_messages, historical_predictions, model_id)
-        prediction_histories[conversation_id].append(prediction)
+        parsed_sentence, prediction = predict_domain_and_dialog_act(message, historical_messages, historical_domain_and_dialog_acts, model_id)
+        
+        # Update history
+        message_histories[conversation_id].append(message)
+        domain_and_dialog_acts_histories[conversation_id].append(prediction)
 
-        return {'prediction': prediction}
+        return {
+            'prediction': prediction,
+            'message': message,
+            'parsed_sentence': parsed_sentence,
+            }
 
 
 
@@ -53,12 +61,20 @@ class PredictSemanticFrameSlotFilling(Resource):
         model_id = args['model-id']
 
         historical_messages = message_histories[conversation_id]
-        historical_predictions = prediction_histories[conversation_id]
+        historical_domain_and_dialog_acts = domain_and_dialog_acts_histories[conversation_id]
+        historical_slot_values = slot_values_histories[conversation_id]
+        historical_slot_questions = slot_questions_histories[conversation_id]
 
-        prediction = predict_semantic_frame_slot_filling(message, historical_messages, historical_predictions, model_id)
-        prediction_histories[conversation_id].append(prediction)
+        slot_values, slot_questions = predict_semantic_frame_slot_filling(message, historical_messages, historical_domain_and_dialog_acts, historical_slot_values, historical_slot_questions, model_id)
 
-        return {'prediction': prediction}
+        # Update history
+        slot_values_histories[conversation_id].append(slot_values)
+        slot_questions_histories[conversation_id].append(slot_questions)
+
+        return {
+            'slot_values': slot_values,
+            'slot_questions': slot_questions,
+            }
 
 
 # Add the resources to the API
