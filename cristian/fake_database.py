@@ -5,7 +5,7 @@ class FakeDatabase():
     def retrieve(self, key):
         return random.choice(self.to_be_retrieved[key])
     
-    def retrieve_agent_response(self, to_be_provided, to_be_requested):
+    def retrieve_agent_response(self, agent_dialogue_act, to_be_provided, to_be_requested):
         sentence = random.choice(self.templates['greeting']) + ' '
         for slot in to_be_provided.keys():
             value = to_be_provided[slot]
@@ -20,6 +20,11 @@ class FakeDatabase():
             if name in self.templates['to_be_request']:    
                 sentence += random.choice(self.templates['to_be_request'][name]).format(**{'domain': domain}) + ' '
         
+        if len(to_be_provided) == 0 and len(to_be_requested) == 0 and len(agent_dialogue_act) == 0:
+            sentence = "I'm sorry, I don't have any information about that."
+        
+        if any([act for act in agent_dialogue_act if act.startswith('general')]):
+            sentence = "You're welcome!"
         return sentence
     
     def __init__(self):

@@ -152,7 +152,8 @@ class Agent:
     def get_agent_response(self):
         to_be_retrieved = self.history[self.index]['to_be_retrieved']
         to_be_provided = self.history[self.index]['to_be_provided']
-        response = self.database.retrieve_agent_response(to_be_retrieved, to_be_provided)
+        agent_dialogue_act = self.history[self.index]['agent_dialogue_act']
+        response = self.database.retrieve_agent_response(agent_dialogue_act, to_be_retrieved, to_be_provided)
         self.history[self.index]['agent_utterance'] = parse(response)
         return response
 
@@ -641,4 +642,3 @@ print('Historical to be requested utterance:', agent.get_to_be_requested_histori
 print('Predicted to be requested:', agent.predict_to_be_requested())
 print('History:', agent.history)
 print()
-
