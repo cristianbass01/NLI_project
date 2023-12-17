@@ -22,7 +22,7 @@ class PredictDomainAndDialogAct(Resource):
         parser.add_argument('model-id', required=True, help="model-id cannot be blank")
         self.parser = parser
 
-    def get(self):
+    def post(self):
         args = self.parser.parse_args()
         conversation_id = args['conversation-id']
         message = args['message']
@@ -54,7 +54,7 @@ class PredictSemanticFrameSlotFilling(Resource):
         parser.add_argument('model-id', required=True, help="model-id cannot be blank")
         self.parser = parser
 
-    def get(self):
+    def post(self):
         args = self.parser.parse_args()
         conversation_id = args['conversation-id']
         message = args['message']
