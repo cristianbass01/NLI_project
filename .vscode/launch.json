@@ -5,6 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Flutter",
+            "type": "dart",
+            "request": "launch",
+            "program": "${workspaceFolder}/demo/frontend/lib/main.dart",
+        },
+        {
             "name": "Python: Flask",
             "type": "python",
             "request": "launch",
