@@ -33,22 +33,22 @@ def predict_domain_and_dialog_act(message, historical_messages, historical_predi
     return model.predict(message, historical_messages, historical_predictions)
 
 
-_labels = ['Hotel-Inform', 'Hotel-Request', 'Restaurant-Inform', 'Restaurant-Request', 'general-bye', 'general-greet', 'general-thank', 'other']
 _nlp = spacy.load("en_core_web_lg")
-_mlb = MultiLabelBinarizer(classes=_labels)
-
 
 class RoBERTa(torch.nn.Module):
     def __init__(self):
         super().__init__()
-        self.num_labels = len(_labels)
+        model_file = torch.load(os.path.join(_models_directory, 'roberta.pt'))
+        self.mlb = MultiLabelBinarizer(classes=model_file['mlb']['classes'], sparse_output=model_file['mlb'].get('sparse_output', False))
+        self.mlb.fit([model_file['mlb']['classes']])
+        self.num_labels = len(self.mlb.classes)
+        self.l1 = RobertaForSequenceClassification.from_pretrained('roberta-base', num_labels=self.num_labels)
         self.tokenizer = RobertaTokenizer.from_pretrained('roberta-base')
         self.max_length = 256
-        self.model_path = os.path.join(_models_directory, 'roberta.pt')
-        self.l1 = RobertaForSequenceClassification.from_pretrained(self.model_path, num_labels=self.num_labels)
         self.pre_classifier = torch.nn.Linear(8, 768)
         self.dropout = torch.nn.Dropout(0.3)
         self.classifier = torch.nn.Linear(768, self.num_labels)
+        self.load_state_dict(model_file['state_dict'])
         self.to(device)
 
     def forward(self, input_ids, attention_mask, token_type_ids):
@@ -63,7 +63,7 @@ class RoBERTa(torch.nn.Module):
         return output
     
 
-    def parse(sentence):
+    def parse(self, sentence):
         # Tokenize
         sentence = _nlp(sentence)
         # Remove stop words
@@ -95,7 +95,7 @@ class RoBERTa(torch.nn.Module):
 
         outputs = torch.sigmoid(outputs).cpu().detach().numpy()
         threshold = 0.5
-        outputs = test_predictions = [[prob > threshold for prob in prob_list] for prob_list in outputs ]
+        outputs = [[prob > threshold for prob in prob_list] for prob_list in outputs ]
         
-        outputs = _mlb.inverse_transform(np.array(outputs))
+        outputs = self.mlb.inverse_transform(np.array(outputs))
         return sentence, outputs
