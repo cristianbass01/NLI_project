@@ -59,7 +59,7 @@ while True:
                 print(char, end = '', flush = True)
             
             print()
-            cur_input += 1
+        cur_input += 1
     
     intent = agent.predict_intent(user_input)
     print(Back.RED + "User intents:" + Back.RESET + " " + Fore.RED + ", ".join(intent) + Fore.RESET)
@@ -88,10 +88,10 @@ while True:
     
     agent.update_history(intent, user_input)
     
-    #TODO: Get scripted bot response according to some set dialogue structure (e.g. a list of responses)
     bot_response = bot_responses[cur_response]
     cur_response += 1
     print("Agent's response:", bot_response)
+    print()
     agent.update_history(agent_acts, bot_response)
     
     
