@@ -5,7 +5,7 @@ import spacy
 import torch
 import os
 from collections import defaultdict
-from util import ModelDictionary, models_base_directory, device, spacy_nlp
+from dataset_and_task_exploration.util import ModelDictionary, models_base_directory, device, spacy_nlp
 
 _models_directory = os.path.join(models_base_directory, '2_slot_filling')
 

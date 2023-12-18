@@ -3,7 +3,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 import numpy as np
 import torch
 import os
-from util import ModelDictionary, models_base_directory, device, spacy_nlp
+from dataset_and_task_exploration.util import ModelDictionary, models_base_directory, device, spacy_nlp
 
 _models_directory = os.path.join(models_base_directory, '1_predict_domain_and_dialog_act')
 

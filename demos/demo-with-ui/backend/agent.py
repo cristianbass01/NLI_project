@@ -6,7 +6,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 from torch import cuda
 import re
 import fake_database as FakeDatabase
-from util import device, models_base_directory
+from dataset_and_task_exploration.util import device, models_base_directory
 import os
 
 #import nltk
