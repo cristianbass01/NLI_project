@@ -1,27 +1,18 @@
-from transformers import (
-    RobertaForSequenceClassification,
-    RobertaTokenizer,
-    RobertaConfig,
-)
-from sklearn.preprocessing import MultiLabelBinarizer
-import numpy as np
-import torch
-import os
-from util import ModelDictionary, models_base_directory, device, spacy_nlp
 from agent import Agent
 from openai import OpenAI
 from collections import defaultdict
-
+import os
 
 agent = Agent()
 
 # Enter Open AI API Key here
 openai_api_key = None
-
+if not openai_api_key:
+    openai_api_key = os.getenv("OPENAI_API_KEY")
 if not openai_api_key:
     raise ValueError("OPENAI_API_KEY environment variable is not set.")
 
-openai_client = OpenAI(api_key="openai_api_key")
+openai_client = OpenAI(api_key=openai_api_key)
 
 history = defaultdict(list)
 
@@ -93,32 +84,29 @@ def generate_response(
     :return: The generated response text.
     """
 
-    history_iterator = zip(history["user_utterance"], history["user_dialog_act"], history["slot_values"], history["slot_questions"], history["slots_to_be_retrieved"], history["agent_dialog_act"], history["slots_to_be_requested"], [*(history["agent_response"]), ''])
+    history_iterator = zip(history["user_dialog_act"], history["slot_values"], history["slot_questions"], history["slots_to_be_retrieved"], history["agent_dialog_act"], history["slots_to_be_requested"], [*(history["agent_response"]), ''])
     
     historical_data = []
-    for user_utterance, user_dialog_act, slot_values, slot_questions, slots_to_retrieve, agent_dialog_act, slots_to_request, agent_response in history_iterator:
+    for user_dialog_act, slot_values, slot_questions, slots_to_retrieve, agent_dialog_act, slots_to_request, agent_response in history_iterator:
         historical_data.append(
 f'''
-User Utterance: {user_utterance}
 User Dialog Act: {user_dialog_act}
 Slot Values (user inputs): {slot_values}
 Slot Questions (asked by user): {slot_questions}
 Slots to Retrieve: {slots_to_retrieve}
 Dialog Act you should do: {agent_dialog_act}
 Slots to Request:": {slots_to_request}
-Your response: {agent_response}
 ''')
     
     prompt = (
         f"As an AI agent, respond to the user based on the following context:\n"
-        f"History:\n{'-------------------'.join(historical_data)}\n----------------\n"
-        f"'User Utterance' is the message of the user.\n"
+        f"History of Slots and Dialog Acts:\n{'-------------------'.join(historical_data)}\n----------------\n"
         f"'Slot values (user inputs)' contains relevant values parsed from the user utternace that you should use to respond to the user.\n"
         f"'Slot Questions (asked by user)' are things that the user has requested from you. You have to answer them. Make up information if needed, e.g. for phone numbers.\n"
         f"For 'Slots to Retrieve', creatively generate relevant information (e.g., inventing restaurant names). Do not ask the user for the values of the slots that you should retrieve. However, the values you come up with should align with the slot values that the user has supplied (e.g. suggest relevant hotels/restaurants etc. according to what the user has specified).\n"
         f"For 'Slots to Request', formulate questions to ask the user.\n"
         f"'Dialog Act you should do' is the next dialog act that you should perform.\n"
-        f"Furthermore, do not repeat yourself.\n"
+        f"Furthermore, do not repeat yourself. And never tell the user to wait for another of your messages, always directly respond. Also, don't be too long in your answers - be polite and concise.\n"
         f"Agent Response:"
     )
 
