@@ -3,7 +3,7 @@ import random
 class FakeDatabase():
 
     def retrieve(self, key):
-        return random.choice(self.to_be_retrieved[key])
+        return random.choice(self.to_be_retrieved.get(key, [f"don't know any {key}"]))
     
     def retrieve_agent_response(self, agent_dialogue_act, to_be_requested, to_be_provided):
         sentence = random.choice(self.templates['greeting']) + ' '
@@ -38,6 +38,7 @@ class FakeDatabase():
             'hotel-stars': ['3', '4', '5'],
             'hotel-name': ['Grand Hotel', 'Hilton', 'Holiday Inn', 'hotel-none'],
             'hotel-ref': ['B0007I1JYQ', 'B0007I1JYR', 'B0007I1JYS'],
+            'hotel-area': ['center', 'east', 'north', 'south', 'west'],
             
             'restaurant-area': ['center', 'east', 'north', 'south', 'west'],
             'restaurant-food': ['chinese', 'english', 'french', 'indian', 'italian', 'japanese'],

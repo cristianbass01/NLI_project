@@ -228,7 +228,7 @@ class Agent:
         else:
             prev_user_utterance = self.history[self.index-1]['user_utterance']
             prev_user_acts = self.history[self.index - 1]['dialogue_act']
-            prev_slots = self.history[self.index - 1]['slot_filling'].keys() 
+            prev_slots = list(self.history[self.index - 1]['slot_filling'].keys())
             prev_slots += [item + ' : ?' for item in self.history[self.index - 1]['question_tags']]
             prev_bot_utterance = self.history[self.index - 1]['agent_utterance']
             prev_bot_acts = self.history[self.index - 1]['agent_dialogue_act']
@@ -249,7 +249,9 @@ class Agent:
         return historical_utterance
 
     def retrieve_slots_from_agent_act(self, prev_bot_acts):
-        prev_bot_acts_processed = process_dialogue_act(prev_bot_acts).remove('other')
+        prev_bot_acts_processed = process_dialogue_act(prev_bot_acts)
+        if 'other' in prev_bot_acts_processed:
+            prev_bot_acts_processed.remove('other')
         services = list(set([item.split('-')[0] for item in prev_bot_acts_processed]))
         prev_bot_raw_slots = self.history[self.index - 1]['to_be_retrieved']
         prev_bot_slots = [item for item in prev_bot_raw_slots if not (item.endswith('availability') or item.endswith('choice'))]
@@ -301,6 +303,8 @@ class Agent:
             matching_act_type = matching_act_types[0]
             
             if matching_act_type not in slots_per_act_type:
+                if slot == 'none':
+                    continue
                 slots_per_act_type[matching_act_type] = [(slot.split('-')[1], slots[slot])]
             else:
                 slots_per_act_type[matching_act_type].append((slot.split('-')[1], slots[slot]))
@@ -315,7 +319,6 @@ class Agent:
             prev_agent_utterance = self.history[self.index - 1]['agent_utterance']
             prev_agent_acts = self.history[self.index - 1]['agent_dialogue_act']
             prev_agent_slots = self.history[self.index - 1]['to_be_provided']
-            prev_agent_slots.update(self.history[self.index - 1]['to_be_requested'])
             prev_agent_acts_to_slot = self.get_slots_per_act_type(prev_agent_acts, prev_agent_slots)
 
         prev_user_acts = self.history[self.index]['dialogue_act']
