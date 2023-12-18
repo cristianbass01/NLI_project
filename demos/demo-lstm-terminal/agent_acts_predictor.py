@@ -1,0 +1,46 @@
+import sys
+import os
+# to make from LSTM import MyLSTM as LSTM from util folder work
+sys.path.append(os.path.abspath(os.path.join(__file__, '../../../util')))
+
+from LSTM import MyLSTM as LSTM
+import os
+import pickle
+from transformers import AutoTokenizer, BertModel, logging
+from torch import load
+import torch
+
+logging.set_verbosity_error()
+
+MOVE_AGENT_ACTS_MODEL_PATH = 'saved_models'
+MOVE_AGENT_ACTS_MODEL_NAME = 'LSTM'
+TRANSFORMER_MODEL_NAME = 'bert-base-uncased'
+
+class AgentActsPredictor:
+    def __init__(self, model_path, model_name, cuda = False):
+        self.cuda = cuda
+        #Load Tokenizer
+        self.nr_features = 768
+        self.tokenizer = AutoTokenizer.from_pretrained(TRANSFORMER_MODEL_NAME)
+        transformer = BertModel.from_pretrained(TRANSFORMER_MODEL_NAME) 
+        self.embedding_matrix = transformer.embeddings.word_embeddings.weight
+        # Load MultiLaberBinarizer
+        self.mlb = pickle.load(open(os.path.join(model_path, 'MOVE_AGENT_ACTS_mlb.pkl'), 'rb'))
+        self.intent_classifier = LSTM(input_size = self.nr_features, num_cells = 4, hidden_size = 300, bi = True, out_features = len(self.mlb.classes_))
+        self.intent_classifier.load_state_dict(load(os.path.join(model_path, 'MOVE_AGENT_ACTS_' + model_name + '.pt')))
+        if cuda:
+            self.intent_classifier = self.intent_classifier.cuda()
+        self.intent_classifier.eval()
+
+    def predict(self, utterance):
+        with torch.no_grad():
+            tokenized = self.tokenizer(utterance)
+            embedding = self.embedding_matrix[tokenized.input_ids]
+            if self.cuda:
+                embedding = embedding.cuda()
+            out = self.intent_classifier(embedding[None, :])
+            if self.cuda:
+                out = out.cpu()
+            out = (out > 0).detach().numpy()
+            intents = self.mlb.inverse_transform(out)[0]
+            return list(intents)
